@@ -29,108 +29,89 @@ export function BlockAuthorsCtxRoot ({ children }: Props): React.ReactElement<Pr
   const [state, setState] = useState<BlockAuthors>(EMPTY_STATE);
 
   // No unsub, global context - destroyed on app close
-  useEffect((): void => {
-    if (!isApiReady) {
-      console.log('API not ready yet, skipping subscription setup');
+  useEffect((): (() => void) => {
+    let unsub: (() => void) | undefined;
 
-      return;
-    }
+    const setupSubscription = async () => {
+      try {
+        unsub = await api.rpc.chain.subscribeNewHeads(async (header) => {
+          if (header?.number) {
+            const blockNumber = header.number.unwrap();
+            let thisBlockAuthor = '';
 
-    console.log('Starting subscription setup, api.isReady:', api.isReady);
+            try {
+              const block = await api.rpc.chain.getBlock(header.hash);
 
-    api.isReady
-      .then(async (): Promise<void | (() => void)> => {
-        let lastHeaders: HeaderExtended[] = [];
-        let lastBlockAuthors: string[] = [];
-        let lastBlockNumber = '';
+              if (block?.block?.extrinsics?.length > 0) {
+                const firstExtrinsic = block.block.extrinsics[0];
 
-        // First check if we can get the current best block
-        try {
-          const bestNumber = await api.derive.chain.bestNumber();
-
-          console.log('Current best block number:', bestNumber.toString());
-
-          const block = await api.rpc.chain.getBlock(await api.rpc.chain.getBlockHash(bestNumber));
-
-          // Check if we can get the author from the block's extrinsics
-          if (block?.block?.extrinsics?.length > 0) {
-            const firstExtrinsic = block.block.extrinsics[0];
-
-            console.log('Initial block author:', firstExtrinsic.signer?.toString());
-          }
-        } catch (error) {
-          console.error('Error getting initial block data:', error);
-        }
-
-        if (!api.derive.chain?.subscribeFinalizedHeads) {
-          console.error('subscribeFinalizedHeads not available on api.derive.chain');
-
-          return;
-        }
-
-        console.log('Setting up finalized heads subscription...');
-
-        const unsub = api.derive.chain.subscribeFinalizedHeads(async (header: HeaderExtended): Promise<void> => {
-          try {
-            if (header?.number) {
-              const blockNumber = header.number.unwrap();
-              let thisBlockAuthor = '';
-
-              // Try to get the author from the block's extrinsics
-              try {
-                const block = await api.rpc.chain.getBlock(header.hash);
-
-                // Try to get the author from the first extrinsic
-                if (block?.block?.extrinsics?.length > 0) {
-                  const firstExtrinsic = block.block.extrinsics[0];
-
-                  thisBlockAuthor = firstExtrinsic.signer?.toString() || '';
-                  console.log(`Block #${blockNumber.toString()}: Author ${thisBlockAuthor}`);
-                }
-              } catch (error) {
-                console.error('Error getting block author:', error);
+                thisBlockAuthor = firstExtrinsic.signer?.toString() || '';
               }
+            } catch (error) {
+              console.error('Error getting block author:', error);
+            }
 
-              if (thisBlockAuthor) {
-                const thisBlockNumber = formatNumber(blockNumber);
+            if (thisBlockAuthor) {
+              const thisBlockNumber = formatNumber(blockNumber);
 
+              setState((prevState) => {
                 byAuthor[thisBlockAuthor] = thisBlockNumber;
 
-                if (thisBlockNumber !== lastBlockNumber) {
-                  lastBlockNumber = thisBlockNumber;
-                  lastBlockAuthors = [thisBlockAuthor];
+                if (thisBlockNumber !== prevState.lastBlockNumber) {
+                  const lastBlockAuthors = [thisBlockAuthor];
+                  const lastHeaders = prevState.lastHeaders
+                    .filter((old, index) => index < MAX_HEADERS && old.number.unwrap().lt(blockNumber))
+                    .reduce((next, header): HeaderExtended[] => {
+                      next.push(header);
+
+                      return next;
+                    }, [header as HeaderExtended])
+                    .sort((a, b) => b.number.unwrap().cmp(a.number.unwrap()));
+
+                  return {
+                    byAuthor,
+                    eraPoints,
+                    lastBlockAuthors: lastBlockAuthors.slice(),
+                    lastBlockNumber: thisBlockNumber,
+                    lastHeader: header as HeaderExtended,
+                    lastHeaders
+                  };
                 } else {
-                  lastBlockAuthors.push(thisBlockAuthor);
+                  const lastBlockAuthors = [...prevState.lastBlockAuthors, thisBlockAuthor];
+                  const lastHeaders = prevState.lastHeaders
+                    .filter((old, index) => index < MAX_HEADERS && old.number.unwrap().lt(blockNumber))
+                    .reduce((next, header): HeaderExtended[] => {
+                      next.push(header);
+
+                      return next;
+                    }, [header as HeaderExtended])
+                    .sort((a, b) => b.number.unwrap().cmp(a.number.unwrap()));
+
+                  return {
+                    byAuthor,
+                    eraPoints,
+                    lastBlockAuthors,
+                    lastBlockNumber: thisBlockNumber,
+                    lastHeader: header as HeaderExtended,
+                    lastHeaders
+                  };
                 }
-
-                lastHeaders = lastHeaders
-                  .filter((old, index) => index < MAX_HEADERS && old.number.unwrap().lt(blockNumber))
-                  .reduce((next, header): HeaderExtended[] => {
-                    next.push(header);
-
-                    return next;
-                  }, [header])
-                  .sort((a, b) => b.number.unwrap().cmp(a.number.unwrap()));
-
-                setState({ byAuthor, eraPoints, lastBlockAuthors: lastBlockAuthors.slice(), lastBlockNumber, lastHeader: header, lastHeaders });
-              }
+              });
             }
-          } catch (error) {
-            console.error('Error processing new header:', error);
           }
         });
+      } catch (error) {
+        console.error('Error setting up subscription:', error);
+      }
+    };
 
-        console.log('Subscription setup complete');
+    setupSubscription().catch(console.error);
 
-        return () => {
-          console.log('Cleaning up subscription');
-          // @ts-expect-error UnsubscribePromise handling
-          undefined && unsub?.then((unsubFn) => unsubFn());
-        };
-      })
-      .catch((error) => {
-        console.error('Error in subscription setup:', error);
-      });
+    return () => {
+      if (unsub) {
+        unsub();
+      }
+    };
   }, [isApiReady, api]);
 
   useEffect((): void => {
