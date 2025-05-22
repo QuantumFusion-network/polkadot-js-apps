@@ -755,7 +755,7 @@ function Account ({ account: { address, meta }, className = '', delegation, filt
           {balancesAll && (
             <FormatBalance
               className='result'
-              format={balancesAll.freeBalance.add(balancesAll.reservedBalance).gt(BN_ZERO)}
+              formatIndex={0}
               value={balancesAll.freeBalance.add(balancesAll.reservedBalance)}
               withCurrency
             />
