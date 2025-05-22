@@ -24,6 +24,7 @@ import { useAccountInfo, useApi, useBalancesAll, useBestNumber, useCall, useLedg
 import { keyring } from '@polkadot/ui-keyring';
 import { settings } from '@polkadot/ui-settings';
 import { BN, BN_ZERO, formatBalance, formatNumber, isFunction } from '@polkadot/util';
+import { FormatBalance } from '@polkadot/react-query';
 
 import Backup from '../modals/Backup.js';
 import ChangePass from '../modals/ChangePass.js';
@@ -747,6 +748,18 @@ function Account ({ account: { address, meta }, className = '', delegation, filt
           toggle={toggleIsExpanded}
         />
       </StyledTr>
+      <StyledTr className={`${className} balance_row packedTop`}>
+        <td></td>
+        <td className='balance_info'></td>
+        <td className='balance_value'>
+          {balancesAll && (
+            <FormatBalance
+              value={balancesAll.freeBalance.add(balancesAll.reservedBalance)}
+            />
+          )}
+        </td>
+        <td></td>
+      </StyledTr>
       <StyledTr className={`${className} ${isExpanded ? 'isExpanded isLast' : 'isCollapsed'} packedTop`}>
         <td/>
         <td
@@ -793,6 +806,14 @@ const StyledTr = styled.tr`
   .devBadge {
     opacity: var(--opacity-light);
   }
+  
+  &.balance_row {
+    .balance_value {
+      text-align: right;
+      padding-right: 16px;
+      font-weight: bold;
+    }
+  }
 `;
 
 const StyledDiv = styled.div`
@@ -801,6 +822,14 @@ const StyledDiv = styled.div`
     overflow: hidden;
     padding-bottom: 6px;
     background: #f5f5f5;
+    
+    .balance_display {
+      text-align: right;
+      padding-right: 1rem;
+      
+      .balance_value {
+        font-weight: bold;
+      }
+    }
 `
-
 export default React.memo(Account);
