@@ -748,13 +748,16 @@ function Account ({ account: { address, meta }, className = '', delegation, filt
           toggle={toggleIsExpanded}
         />
       </StyledTr>
-      <StyledTr className={`${className} balance_row packedTop`}>
+      <StyledTr className={`${className} ui--AddressInfo-balanceRow balance-align-right packedTop`}>
         <td></td>
-        <td className='balance_info'></td>
-        <td className='balance_value'>
+        <td></td>
+        <td className='ui--AddressInfo-balance'>
           {balancesAll && (
             <FormatBalance
+              className='result'
+              format={balancesAll.freeBalance.add(balancesAll.reservedBalance).gt(BN_ZERO)}
               value={balancesAll.freeBalance.add(balancesAll.reservedBalance)}
+              withCurrency
             />
           )}
         </td>
@@ -806,12 +809,11 @@ const StyledTr = styled.tr`
   .devBadge {
     opacity: var(--opacity-light);
   }
-  
-  &.balance_row {
-    .balance_value {
+
+  &.balance-align-right {
+    .ui--AddressInfo-balance {
       text-align: right;
       padding-right: 16px;
-      font-weight: bold;
     }
   }
 `;
@@ -822,14 +824,6 @@ const StyledDiv = styled.div`
     overflow: hidden;
     padding-bottom: 6px;
     background: #f5f5f5;
-    
-    .balance_display {
-      text-align: right;
-      padding-right: 1rem;
-      
-      .balance_value {
-        font-weight: bold;
-      }
-    }
-`
+`;
+
 export default React.memo(Account);
