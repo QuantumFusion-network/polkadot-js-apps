@@ -5,7 +5,7 @@ import type { HeaderExtended } from '@polkadot/api-derive/types';
 
 import React, { useCallback, useRef, useState } from 'react';
 
-import { Table } from '@polkadot/react-components';
+import { PlayPanel, styled, Table } from '@polkadot/react-components';
 
 import BlockHeader from './BlockHeader.js';
 import { useTranslation } from './translate.js';
@@ -45,27 +45,36 @@ function BlockHeaders ({ headers, playPanel }: Props): React.ReactElement<Props>
   const displayHeaders = isPaused ? frozenHeaders : headers;
 
   return (
-    <Table
-      bs={'5px'}
-      empty={t('No blocks available')}
-      header={headerRef.current}
-      isPaused={isPaused}
-      onPause={pauseBlockUpdates}
-      onPlay={resumeBlockUpdates}
-      onSwitchOrderBy={switchOrderBy}
-      orderByOldToNew={orderByOldToNew}
-      playPanel={playPanel}
-    >
-      {displayHeaders
-        .filter((header) => !!header)
-        .map((header): React.ReactNode => (
-          <BlockHeader
-            key={header.number.toString()}
-            value={header}
-          />
-        ))}
-    </Table>
+    <StyledWrapper>
+      {playPanel &&
+        <PlayPanel
+          isPaused={isPaused}
+          onPause={pauseBlockUpdates}
+          onPlay={resumeBlockUpdates}
+          onSwitchOrderBy={switchOrderBy}
+          orderByOldToNew={orderByOldToNew}
+        />
+      }
+      <Table
+        bs={'5px'}
+        empty={t('No blocks available')}
+        header={headerRef.current}
+      >
+        {displayHeaders
+          .filter((header) => !!header)
+          .map((header): React.ReactNode => (
+            <BlockHeader
+              key={header.number.toString()}
+              value={header}
+            />
+          ))}
+      </Table>
+    </StyledWrapper>
   );
 }
+
+const StyledWrapper = styled.div`
+  position: relative;
+`;
 
 export default React.memo(BlockHeaders);

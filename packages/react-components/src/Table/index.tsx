@@ -5,7 +5,6 @@ import React from 'react';
 
 import { useWindowColumns } from '@polkadot/react-hooks';
 
-import Icon from '../Icon.js';
 import { styled } from '../styled.js';
 import Column from './Column/index.js';
 import Row from './Row/index.js';
@@ -24,17 +23,11 @@ interface Props {
   headerChildren?: React.ReactNode;
   isFixed?: boolean;
   isInline?: boolean;
-  isPaused?: boolean;
   isSplit?: boolean;
   legend?: React.ReactNode;
   maxColumns?: 2 | 3;
   noBodyTag?: boolean;
   bs?: string;
-  playPanel: boolean;
-  onPause?: () => void;
-  onPlay?: () => void;
-  onSwitchOrderBy?: () => void;
-  orderByOldToNew?: boolean;
 }
 
 const COLUMN_INDEXES = {
@@ -42,7 +35,7 @@ const COLUMN_INDEXES = {
   3: [0, 1, 2]
 } as const;
 
-function TableBase ({ bs, children, className = '', empty, emptySpinner, filter, footer, header, headerChildren, isFixed, isInline, isPaused, isSplit, legend, maxColumns, noBodyTag, onPause, onPlay, onSwitchOrderBy, orderByOldToNew, playPanel }: Props): React.ReactElement<Props> {
+function TableBase ({ bs, children, className = '', empty, emptySpinner, filter, footer, header, headerChildren, isFixed, isInline, isSplit, legend, maxColumns, noBodyTag }: Props): React.ReactElement<Props> {
   const numColumns = useWindowColumns(maxColumns);
   const isArray = Array.isArray(children);
   const isEmpty = !children || (isArray && children.length === 0);
@@ -54,44 +47,6 @@ function TableBase ({ bs, children, className = '', empty, emptySpinner, filter,
       isEmpty={isEmpty}
     >
       {headerChildren}
-      {playPanel &&
-        <div className='playPanel'>
-          {/* Play Icon */}
-          <button
-            disabled={!isPaused}
-            onClick={onPlay}
-          >
-            <Icon
-              color={isPaused ? 'customGreen' : 'customGray'}
-              icon='play'
-            />
-          </button>
-          {/* Pause Icon */}
-          <button
-            disabled={isPaused}
-            onClick={onPause}
-          >
-            <Icon
-              color={isPaused ? 'customGray' : 'customGreen'}
-              icon='pause'
-            />
-          </button>
-          {/* Sort Icons */}
-          <button
-            disabled={!isPaused}
-            onClick={onSwitchOrderBy}
-          >
-            <Icon
-              color={orderByOldToNew ? 'customGray' : 'customGreen'}
-              icon='sort-up'
-            />
-            <Icon
-              color={orderByOldToNew ? 'customGreen' : 'customGray'}
-              icon='sort-down'
-            />
-          </button>
-        </div>
-      }
     </Head>
   );
 
@@ -156,41 +111,6 @@ const BORDER_RADIUS = `${BASE_BORDER * 4}rem`;
 const StyledDiv = styled.div`
   max-width: 100%;
   width: 100%;
-
-  .playPanel {
-    position: absolute;
-    top: 6px;
-    right: 6px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    border: 1px solid #FFFFFF;
-    border-radius: 6px;
-
-    button {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 10px 12px;
-      background: transparent;
-      border: 0;
-      border-radius: 0.25rem;
-      cursor: pointer;
-      transition: all 0.2s ease;
-
-      .ui--Icon {
-        transform: scale(1.5);
-      }
-
-      &:hover:not(:disabled) {
-        background: #FFF;
-      }
-
-      &:disabled {
-        cursor: not-allowed;
-      }
-    }
-  }
 
   .ui--Table-Split {
     display: flex;
