@@ -17,6 +17,7 @@ interface Props {
   eventCount: number;
   events: KeyedEvent[];
   headers: HeaderExtended[];
+  playPanel: boolean;
 }
 
 function Main ({ eventCount, events, headers }: Props): React.ReactElement<Props> {
@@ -26,7 +27,10 @@ function Main ({ eventCount, events, headers }: Props): React.ReactElement<Props
       <Summary eventCount={eventCount} />
       <Columar>
         <Columar.Column>
-          <BlockHeaders headers={headers} />
+          <BlockHeaders
+            headers={headers}
+            playPanel={true}
+          />
         </Columar.Column>
         <Columar.Column>
           <Events events={events} />
