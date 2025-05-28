@@ -67,7 +67,13 @@ async function manageEvents (api: ApiPromise, prev: PrevHashes, records: Vec<Eve
     .reverse();
   const newEventHash = xxhashAsHex(stringToU8a(stringify(newEvents)));
 
-  if (newEventHash !== prev.event && newEvents.length) {
+  // Next check cut balance events which have the same eventHash 
+  // when the transaction hash is the same to/from addresses
+  // and value is the same.
+  // newEventHash !== prev.event So deleted
+  // if (newEventHash !== prev.event && newEvents.length) {
+
+  if (newEvents.length) {
     prev.event = newEventHash;
 
     // retrieve the last header, this will map to the current state
