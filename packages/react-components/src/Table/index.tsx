@@ -27,7 +27,7 @@ interface Props {
   legend?: React.ReactNode;
   maxColumns?: 2 | 3;
   noBodyTag?: boolean;
-  bs?: string
+  bs?: string;
 }
 
 const COLUMN_INDEXES = {
@@ -35,7 +35,7 @@ const COLUMN_INDEXES = {
   3: [0, 1, 2]
 } as const;
 
-function TableBase ({ children, className = '', empty, emptySpinner, filter, footer, header, headerChildren, isFixed, isInline, isSplit, legend, maxColumns, noBodyTag, bs }: Props): React.ReactElement<Props> {
+function TableBase ({ bs, children, className = '', empty, emptySpinner, filter, footer, header, headerChildren, isFixed, isInline, isSplit, legend, maxColumns, noBodyTag }: Props): React.ReactElement<Props> {
   const numColumns = useWindowColumns(maxColumns);
   const isArray = Array.isArray(children);
   const isEmpty = !children || (isArray && children.length === 0);
@@ -54,7 +54,7 @@ function TableBase ({ children, className = '', empty, emptySpinner, filter, foo
     return (
       <StyledDiv className={`${className} ui--Table isSplit`}>
         {legend}
-        <table style={{borderSpacing: bs}}>
+        <table style={{ borderSpacing: bs }}>
           {headerNode}
         </table>
         <div className='ui--Table-Split'>
@@ -63,7 +63,10 @@ function TableBase ({ children, className = '', empty, emptySpinner, filter, foo
               className={`ui--Table-Split-${numColumns}`}
               key={column}
             >
-              <table style={{borderSpacing: bs}} className='noMargin'>
+              <table
+                className='noMargin'
+                style={{ borderSpacing: bs }}
+              >
                 <tbody className='ui--Table-Body'>
                   {children.filter((_, i) => (i % numColumns) === column)}
                 </tbody>
@@ -78,7 +81,10 @@ function TableBase ({ children, className = '', empty, emptySpinner, filter, foo
   return (
     <StyledDiv className={`${className} ui--Table`}>
       {legend}
-      <table style={{borderSpacing: bs}} className={`${(isFixed && !isEmpty) ? 'isFixed' : 'isNotFixed'} ${isInline ? 'isInline' : ''}`}>
+      <table
+        className={`${(isFixed && !isEmpty) ? 'isFixed' : 'isNotFixed'} ${isInline ? 'isInline' : ''}`}
+        style={{ borderSpacing: bs }}
+      >
         {headerNode}
         <Body
           empty={empty}

@@ -12,7 +12,7 @@ import { styled } from './styled.js';
 
 interface Props {
   className?: string;
-  color?: 'gray' | 'green' | 'normal' | 'orange' | 'red' | 'transparent' | 'white' | 'darkGray';
+  color?: 'gray' | 'green' | 'normal' | 'orange' | 'red' | 'transparent' | 'white' | 'darkGray' | 'customGreen' | 'customGray';
   icon: IconName;
   isPadded?: boolean;
   isSpinning?: boolean;
@@ -86,6 +86,14 @@ const StyledFAI = styled(FontAwesomeIcon)`
 
   &.darkGrayColor {
     color: #8B8B8B;
+  }
+
+  &.customGreenColor {
+    color: #CDC290;
+  }
+
+  &.customGrayColor {
+    color: #999999;
   }
 `;
 

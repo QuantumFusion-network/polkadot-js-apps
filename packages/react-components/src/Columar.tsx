@@ -135,7 +135,7 @@ const StyledDiv = styled.div`
 `;
 
 const Columar = React.memo(ColumarBase) as unknown as typeof ColumarBase & {
-  Column: typeof Column
+  Column: typeof Column;
 };
 
 Columar.Column = Column;
