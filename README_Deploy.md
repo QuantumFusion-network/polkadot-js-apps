@@ -5,11 +5,12 @@ Reminder: please do no change this path `/root/cd/apps` and please use it for an
 The first please request access to the portal server via [instruction](https://github.com/QuantumFusion-network/infra/blob/main/docs/key_management_basic.md).
 
 ```
- $> ssh 86.104.75.24
+ $> ssh PORTAL_IP
  $> cd /root/cd/apps
  $> git fetch --all && git pull && git checkout [SHA or TAG, or BRENCH]
  $> systemctl stop qfn_polkajs && systemctl start qfn_polkajs;
 ```
+PORTAL_IP could be found in the ssh.conf's target [frontend.qfnetwork.xyz](https://github.com/QuantumFusion-network/infra/blob/main/confs/ssh/config#L53).
 
 Please check output of `Checking service status` after you have been done with the last step of manual deploy.
 
