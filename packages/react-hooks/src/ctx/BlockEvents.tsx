@@ -67,7 +67,24 @@ async function manageEvents (api: ApiPromise, prev: PrevHashes, records: Vec<Eve
     .reverse();
   const newEventHash = xxhashAsHex(stringToU8a(stringify(newEvents)));
 
-  if (newEventHash !== prev.event && newEvents.length) {
+  /*
+    We had a problem with missing events in the 'recent events' section and @AlexanderVTr identified it is filtered
+    out here, `newEventHash` is equal for multiple events, for instance for `Balances.Transfer` with the same `from`,
+    `to`, and `value` even though sender's tx nonce and event block is different. The problem appears if those events
+    go one after another and it don't reproduce with another event in between.
+
+    Reproduced on upstream master connected to Polkadot RPC.
+
+    Seems like the filter works for for deduplication, but duplicates are rare and we better relax the filter for now.
+
+    TODO(@khssnv): Report to upstream for a better deduplication solution which does not miss real events.
+  */
+
+  // Upstream filter (avoids duplicates, but miss some events - see above):
+  // if (newEventHash !== prev.event && newEvents.length) {
+
+  // QF Network patch filter (avoids missing events, but may show duplicates):
+  if (newEvents.length) {
     prev.event = newEventHash;
 
     // retrieve the last header, this will map to the current state
