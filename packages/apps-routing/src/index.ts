@@ -90,7 +90,7 @@ export default function create (t: TFunction): Routes {
     nis(t),
     gilt(t),
     scheduler(t),
-    calendar(t),
+    // calendar(t), // Disabled: irrelevant page for QF Network
     contracts(t),
     storage(t),
     extrinsics(t),
@@ -98,7 +98,7 @@ export default function create (t: TFunction): Routes {
     runtime(t),
     signing(t),
     sudo(t),
-    files(t),
+    // files(t), // Disabled: irrelevant page for QF Network
     js(t),
     utilities(t),
     settings(t)
