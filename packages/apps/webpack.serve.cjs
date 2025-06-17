@@ -21,7 +21,8 @@ module.exports = merge(
       host: '127.0.0.1',
       hot: false,
       client: {
-        logging: 'info'
+        logging: 'info',
+        overlay: false
       },
       // ]]]
       open: false,
