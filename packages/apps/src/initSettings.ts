@@ -51,11 +51,25 @@ function getApiUrl (): string {
   const fallbackUrl = endpoints.find(({ value }) => !!value);
 
   // via settings, or the default chain
-  return [stored.apiUrl, process.env.WS_URL].includes(settings.apiUrl)
+  const url = [stored.apiUrl, process.env.WS_URL].includes(settings.apiUrl)
     ? settings.apiUrl // keep as-is
     : fallbackUrl
       ? fallbackUrl.value // grab the fallback
       : 'ws://127.0.0.1:9944'; // nothing found, go local
+
+  // Production check: prevent local WebSocket endpoints in production
+  if (
+    process.env.NODE_ENV === 'production' &&
+    (url.includes('127.0.0.1') || url.includes('localhost') || url.includes(':3000'))
+  ) {
+    console.warn('Local WebSocket endpoint detected in production, switching to public endpoint');
+
+    return fallbackUrl
+      ? fallbackUrl.value
+      : 'wss://test.qfnetwork.xyz'; // fallback if no public endpoint found
+  }
+
+  return url;
 }
 
 // There cannot be a Substrate Connect light client default (expect only jrpc EndpointType)
