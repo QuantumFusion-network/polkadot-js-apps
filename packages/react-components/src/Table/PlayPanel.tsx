@@ -67,7 +67,7 @@ const StyledDiv = styled.div`
   align-items: center;
   border: 1px solid #FFF;
   border-radius: 6px;
-  z-index: 1000;
+  z-index: 200;
 
   button {
     display: flex;
