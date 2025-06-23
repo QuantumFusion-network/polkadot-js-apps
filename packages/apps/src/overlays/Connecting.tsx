@@ -59,18 +59,6 @@ function Connecting ({ className }: Props): React.ReactElement<Props> | null {
       </BaseOverlay>
     );
   } else if (!isApiConnected) {
-    if (isWsLocal) {
-      return (
-        <BaseOverlay
-          className={className}
-          icon='globe'
-          type='info'
-        >
-          <div>{t('Ожидание подключения к локальной ноде. Убедитесь, что нода запущена на {{wsUrl}}', { replace: { wsUrl } })}</div>
-        </BaseOverlay>
-      );
-    }
-
     return (
       <BaseOverlay
         className={className}
