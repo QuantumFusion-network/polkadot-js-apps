@@ -22,7 +22,7 @@ module.exports = merge(
       hot: false,
       client: {
         logging: 'info',
-        overlay: false
+        overlay: false // TODO: Remove this workaround after deployment process is fixed (see PR #40)
       },
       // ]]]
       open: false,
