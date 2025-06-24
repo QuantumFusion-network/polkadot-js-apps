@@ -15,8 +15,6 @@ systemctl stop qfn_polkajs && systemctl start qfn_polkajs;
 
 PORTAL_IP could be found in the ssh.conf's target [frontend.qfnetwork.xyz](https://github.com/QuantumFusion-network/infra/blob/main/confs/ssh/config#L53).
 
-Please check output of `Checking service status` after you have completed the last step of manual deploy.
-
 ## Deploy via Ansible instruction
 
 WIP
