@@ -1,0 +1,38 @@
+# Deploy of portal.qfnetwork.xyz
+
+Reminder: please do not change path of deployment (`/root/cd/apps`) and please use it for any deploy. This directory is important for deploying via `ansible`.
+
+## Manual deploy instruction
+
+First, please request access to the portal server via [instruction](https://github.com/QuantumFusion-network/infra/blob/main/docs/key_management_basic.md).
+
+```console
+ssh PORTAL_IP
+cd /root/cd/apps
+git fetch --all && git pull && git checkout [SHA or TAG, or BRANCH]
+systemctl restart qfn_polkajs
+```
+
+PORTAL_IP could be found in the ssh.conf's target [frontend.qfnetwork.xyz](https://github.com/QuantumFusion-network/infra/blob/main/confs/ssh/config#L53).
+
+## Deploy via Ansible instruction
+
+WIP
+
+## Cache invalidation
+
+WIP
+
+## Checking service status
+
+```console
+systemctl status qfn_polkajs
+```
+
+If something went wrong, please use `Checking the logs` for getting the reason for the failure.
+
+## Checking the logs
+
+```console
+journalctl -f --unit=qfn_polkajs
+```
