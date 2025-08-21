@@ -4,7 +4,7 @@
 import type {EndpointOption} from './types.js';
 
 import {
-  chainsQuantumFusionPNG,
+  chainsQFNetworkPNG,
 } from '../ui/logos/chains/index.js';
 
 export * from './testingRelayWestend.js';
@@ -13,12 +13,12 @@ export const mainChains: Omit<EndpointOption, 'teleport'>[] = [
   {
     info: 'qf2',
     providers: {
-      'Quantum Fusion': 'wss://main.qfnetwork.xyz'
+      'QF Network': 'wss://main.qfnetwork.xyz'
     },
-    text: 'Quantum Fusion',
+    text: 'QF Network',
     ui: {
       color: '#000000',
-      logo: chainsQuantumFusionPNG
+      logo: chainsQFNetworkPNG
     }
   }
 ];
@@ -27,12 +27,12 @@ export const devChains: Omit<EndpointOption, 'teleport'>[] = [
   {
     info: 'qf',
     providers: {
-      'Quantum Fusion': 'wss://dev.qfnetwork.xyz'
+      'QF Network': 'wss://dev.qfnetwork.xyz'
     },
     text: 'QF Devnet',
     ui: {
       color: '#000000',
-      logo: chainsQuantumFusionPNG
+      logo: chainsQFNetworkPNG
     }
   },
 ];
@@ -41,12 +41,12 @@ export const testChains: Omit<EndpointOption, 'teleport'>[] = [
   {
     info: 'qf',
     providers: {
-      'Quantum Fusion': 'wss://test.qfnetwork.xyz'
+      'QF Network': 'wss://test.qfnetwork.xyz'
     },
     text: 'QF Testnet',
     ui: {
       color: '#000000',
-      logo: chainsQuantumFusionPNG
+      logo: chainsQFNetworkPNG
     }
   }
 ];
@@ -56,12 +56,12 @@ export const mainParaChains: Omit<EndpointOption, 'teleport'>[] = [
   {
     info: 'qf',
     providers: {
-      'Quantum Fusion': 'wss://para.main.qfnetwork.xyz'
+      'QF Network': 'wss://para.main.qfnetwork.xyz'
     },
-    text: 'Quantum Fusion',
+    text: 'QF Network',
     ui: {
       color: '#000000',
-      logo: chainsQuantumFusionPNG
+      logo: chainsQFNetworkPNG
     }
   }
 ];
@@ -70,13 +70,13 @@ export const devParaChains: Omit<EndpointOption, 'teleport'>[] = [
   {
     info: 'qf',
     providers: {
-      'Quantum Fusion': 'wss://para-dev.qfnetwork.xyz'
+      'QF Network': 'wss://para-dev.qfnetwork.xyz'
     },
     isDisabled: true,
     text: 'QF Devnet Parachain (Paseo)',
     ui: {
       color: '#000000',
-      logo: chainsQuantumFusionPNG
+      logo: chainsQFNetworkPNG
     }
   }
 ];
@@ -85,12 +85,12 @@ export const testParaChains: Omit<EndpointOption, 'teleport'>[] = [
   {
     info: 'qf',
     providers: {
-      'Quantum Fusion': 'wss://para-test.qfnetwork.xyz'
+      'QF Network': 'wss://para-test.qfnetwork.xyz'
     },
     text: 'QF Testnet Parachain (Paseo)',
     ui: {
       color: '#000000',
-      logo: chainsQuantumFusionPNG
+      logo: chainsQFNetworkPNG
     }
   }
 ];
