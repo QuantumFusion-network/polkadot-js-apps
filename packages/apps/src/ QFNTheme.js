@@ -6,7 +6,6 @@ import { createGlobalStyle } from 'styled-components';
 const primaryColor = '#3C3C3C';
 const secondaryColor = '#CFC289';
 const activeTabColor = '#D07676';
-const borderColor = '#D9D9D9';
 const menuItemColor = '#FFFFFF';
 const headerColor = '#D9D9D9';
 const headerTextColor = '#000000';

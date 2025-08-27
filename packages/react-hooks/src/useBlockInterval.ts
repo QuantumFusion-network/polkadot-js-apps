@@ -23,7 +23,7 @@ function calcInterval (api: ApiPromise): BN {
   const spinBlockTime = api.consts?.spin?.slotDuration;
 
   if(spinBlockTime && !spinBlockTime?.isEmpty) {
-    return spinBlockTime
+    return new BN(spinBlockTime.toString())
   }
 
   return bnMin(A_DAY, (
