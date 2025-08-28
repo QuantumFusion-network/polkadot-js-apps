@@ -104,7 +104,7 @@ function ExplorerApp ({ basePath, className }: Props): React.ReactElement<Props>
                 eventCount={eventCount}
                 events={events}
                 headers={lastHeaders}
-                playPanel={false}
+                playPanel={true}
               />
             }
             index
