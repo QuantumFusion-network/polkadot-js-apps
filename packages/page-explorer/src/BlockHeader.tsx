@@ -6,6 +6,8 @@ import type {HeaderExtended} from '@polkadot/api-derive/types';
 import React from 'react';
 import {Link} from 'react-router-dom';
 
+// import {AddressSmall} from '@polkadot/react-components';
+// import {useBlockAuthor} from '@polkadot/react-hooks/useBlockAuthor';
 import {formatNumber} from '@polkadot/util';
 
 interface Props {
@@ -13,6 +15,9 @@ interface Props {
 }
 
 function BlockHeader({value}: Props): React.ReactElement<Props> | null {
+  // const author = useBlockAuthor(value);
+  const author = null;
+
   if (!value) {
     return null;
   }
@@ -28,12 +33,11 @@ function BlockHeader({value}: Props): React.ReactElement<Props> | null {
       </td>
       <td className='all hash overflow'>
         {hashHex}</td>
-      {/* TODO Find issue with block author address and uncomment it */}
-      {/* {!!author &&
+      {!!author &&
         <td className='address'>
           <AddressSmall value={author}/>
         </td>
-      } */}
+      }
     </tr>
   );
 }
