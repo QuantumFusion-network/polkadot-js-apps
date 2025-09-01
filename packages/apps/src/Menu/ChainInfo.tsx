@@ -5,7 +5,7 @@ import type { RuntimeVersion } from '@polkadot/types/interfaces';
 
 import React from 'react';
 
-import { ChainImg, Icon, styled } from '@polkadot/react-components';
+import { Icon, styled } from '@polkadot/react-components';
 import { useApi, useCall, useIpfs, useToggle } from '@polkadot/react-hooks';
 import { BestNumber, Chain } from '@polkadot/react-query';
 
@@ -13,10 +13,6 @@ import Endpoints from '../Endpoints/index.js';
 
 interface Props {
   className?: string;
-}
-
-function goToHome () {
-  window.location.href = '/';
 }
 
 function ChainInfo ({ className }: Props): React.ReactElement<Props> {

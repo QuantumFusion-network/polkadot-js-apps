@@ -4,7 +4,7 @@
 import type {EndpointOption} from './types.js';
 
 import {
-  chainsQFNetworkPNG,
+  chainsQfNetworkPNG,
 } from '../ui/logos/chains/index.js';
 
 export * from './testingRelayWestend.js';
@@ -18,7 +18,7 @@ export const mainChains: Omit<EndpointOption, 'teleport'>[] = [
     text: 'QF Network',
     ui: {
       color: '#000000',
-      logo: chainsQFNetworkPNG
+      logo: chainsQfNetworkPNG
     }
   }
 ];
@@ -32,7 +32,7 @@ export const devChains: Omit<EndpointOption, 'teleport'>[] = [
     text: 'QF Devnet',
     ui: {
       color: '#000000',
-      logo: chainsQFNetworkPNG
+      logo: chainsQfNetworkPNG
     }
   },
 ];
@@ -46,7 +46,7 @@ export const testChains: Omit<EndpointOption, 'teleport'>[] = [
     text: 'QF Testnet',
     ui: {
       color: '#000000',
-      logo: chainsQFNetworkPNG
+      logo: chainsQfNetworkPNG
     }
   }
 ];
@@ -61,7 +61,7 @@ export const mainParaChains: Omit<EndpointOption, 'teleport'>[] = [
     text: 'QF Network',
     ui: {
       color: '#000000',
-      logo: chainsQFNetworkPNG
+      logo: chainsQfNetworkPNG
     }
   }
 ];
@@ -76,7 +76,7 @@ export const devParaChains: Omit<EndpointOption, 'teleport'>[] = [
     text: 'QF Devnet Parachain (Paseo)',
     ui: {
       color: '#000000',
-      logo: chainsQFNetworkPNG
+      logo: chainsQfNetworkPNG
     }
   }
 ];
@@ -90,7 +90,7 @@ export const testParaChains: Omit<EndpointOption, 'teleport'>[] = [
     text: 'QF Testnet Parachain (Paseo)',
     ui: {
       color: '#000000',
-      logo: chainsQFNetworkPNG
+      logo: chainsQfNetworkPNG
     }
   }
 ];

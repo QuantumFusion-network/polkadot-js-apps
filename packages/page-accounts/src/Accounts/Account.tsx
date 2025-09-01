@@ -64,17 +64,6 @@ interface ReferendaUnlockable {
   ids: [classId: BN, refId: BN][];
 }
 
-const BAL_OPTS_DEFAULT = {
-  available: false,
-  bonded: false,
-  locked: false,
-  redeemable: false,
-  reserved: false,
-  total: true,
-  unlocking: false,
-  vested: false
-};
-
 const BAL_OPTS_EXPANDED = {
   available: true,
   bonded: true,

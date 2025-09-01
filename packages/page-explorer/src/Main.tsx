@@ -20,7 +20,7 @@ interface Props {
   playPanel: boolean;
 }
 
-function Main ({ eventCount, events, headers }: Props): React.ReactElement<Props> {
+function Main ({ eventCount, events, headers, playPanel }: Props): React.ReactElement<Props> {
   return (
     <>
       <Query />
@@ -29,7 +29,7 @@ function Main ({ eventCount, events, headers }: Props): React.ReactElement<Props
         <Columar.Column>
           <BlockHeaders
             headers={headers}
-            playPanel={true}
+            playPanel={playPanel}
           />
         </Columar.Column>
         <Columar.Column>
