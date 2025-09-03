@@ -27,9 +27,30 @@ export function useBlockAuthor (header: HeaderExtended | undefined) {
 
   const extractAuthor = async (): Promise<AccountId32> => {
     const [authorities, sessionLength]: AuxData = await api.call.spinApi.auxData();
-    const sessionIdx = Math.floor(slot?.[0] as any / sessionLength.toNumber());
-    const authorIdx = sessionIdx % authorities.length;
-
+    const slotValue = slot?.[0]
+    const sessionLengthNum = sessionLength.toNumber()
+    
+    // Логируем значения
+    console.log('slotValue:', slotValue)
+    console.log('sessionLength:', sessionLengthNum)
+    if (slotValue !== undefined) {
+      // Для BigInt
+      try {
+        const slotBig = BigInt(slotValue)
+        const sessionLengthBig = BigInt(sessionLengthNum)
+        console.log('BigInt деление:', slotBig / sessionLengthBig)
+      } catch (e) {
+        console.log('BigInt деление: ошибка', e)
+      }
+      // Для Number
+      const slotNum = Number(slotValue)
+      console.log('slotNum / sessionLength:', slotNum / sessionLengthNum)
+      console.log('Math.floor:', Math.floor(slotNum / sessionLengthNum))
+      console.log('Math.trunc:', Math.trunc(slotNum / sessionLengthNum))
+    }
+    const sessionIdx = Math.floor(slotValue as any / sessionLengthNum)
+    const authorIdx = sessionIdx % authorities.length
+    console.log('sessionIdx:', sessionIdx, 'authorIdx:', authorIdx)
     return authorities[authorIdx];
   };
 
