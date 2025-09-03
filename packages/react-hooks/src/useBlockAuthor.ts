@@ -18,40 +18,23 @@ export function useBlockAuthor (header: HeaderExtended | undefined) {
   const slot = header?.digest.logs.map((log) => {
     if (log.isPreRuntime) {
       const [_, data] = log.asPreRuntime;
-
       return api.createType('U64', data.toU8a());
     }
-
     return null;
   }).filter(Boolean);
 
   const extractAuthor = async (): Promise<AccountId32> => {
     const [authorities, sessionLength]: AuxData = await api.call.spinApi.auxData();
-    const slotValue = slot?.[0]
-    const sessionLengthNum = sessionLength.toNumber()
-    
-    // Логируем значения
-    console.log('slotValue:', slotValue)
-    console.log('sessionLength:', sessionLengthNum)
-    if (slotValue !== undefined) {
-      // Для BigInt
-      try {
-        const slotBig = BigInt(slotValue)
-        const sessionLengthBig = BigInt(sessionLengthNum)
-        console.log('BigInt деление:', slotBig / sessionLengthBig)
-      } catch (e) {
-        console.log('BigInt деление: ошибка', e)
-      }
-      // Для Number
-      const slotNum = Number(slotValue)
-      console.log('slotNum / sessionLength:', slotNum / sessionLengthNum)
-      console.log('Math.floor:', Math.floor(slotNum / sessionLengthNum))
-      console.log('Math.trunc:', Math.trunc(slotNum / sessionLengthNum))
-    }
-    const sessionIdx = Math.floor(slotValue as any / sessionLengthNum)
-    const authorIdx = sessionIdx % authorities.length
-    console.log('sessionIdx:', sessionIdx, 'authorIdx:', authorIdx)
-    return authorities[authorIdx];
+    const blockNumber = header?.number?.toNumber();
+    const slotValue = slot?.[0];
+    const sessionLengthNum = sessionLength.toNumber();
+    const slotNum = Number(slotValue);
+    console.log('blockNumber:', blockNumber);
+    console.log('slotNum:', slotNum);
+    console.log('sessionLength:', sessionLengthNum);
+    const leaderIdx = Math.floor(slotNum / sessionLengthNum) % authorities.length;
+    console.log('leaderIdx:', leaderIdx);
+    return authorities[leaderIdx];
   };
 
   const extractAuthorCb = useCallback(extractAuthor, [slot, api.call.spinApi]);
