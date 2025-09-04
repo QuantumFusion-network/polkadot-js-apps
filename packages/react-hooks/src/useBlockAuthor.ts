@@ -1,10 +1,12 @@
 // Copyright 2017-2025 @polkadot/react-hooks authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
-import type { AccountId32 } from '@polkadot/types/interfaces';
 import type { HeaderExtended } from '@polkadot/api-derive/types';
+import type { AccountId32 } from '@polkadot/types/interfaces';
 import type { U32 } from '@polkadot/types-codec';
+
 import { useCallback, useEffect, useState } from 'react';
+
 import { useApi } from './useApi.js';
 
 type AuxData = [AccountId32[], U32];
@@ -14,7 +16,6 @@ export function useBlockAuthor (header: HeaderExtended | undefined) {
   const [auxData, setAuxData] = useState<AuxData | undefined>();
   const { api } = useApi();
 
-  // 1. Загружаем auxData один раз
   useEffect(() => {
     const loadAuxData = async () => {
       try {
@@ -56,21 +57,20 @@ export function useBlockAuthor (header: HeaderExtended | undefined) {
     const slotNum = Number(slotValue);
     const sessionLengthNum = sessionLength.toNumber();
 
-    // === Логирование для отладки ===
     console.log('=== New header ===');
     console.log('blockNumber:', blockNumber);
     console.log('slotNum:', slotNum);
     console.log('sessionLength:', sessionLengthNum);
 
-    // 🟢 Один лидер на всю сессию (600 блоков)
-    // slotNum шагает по 256 → учитываем это
     const virtualStep = Math.floor(slotNum / (sessionLengthNum * 256));
     const leaderIdx = virtualStep % authorities.length;
 
     console.log('virtualStep:', virtualStep);
     console.log('leaderIdx:', leaderIdx);
 
-    return authorities[leaderIdx];
+    const result = await Promise.resolve(authorities[leaderIdx]);
+
+    return result;
   }, [auxData, slot, header]);
 
   useEffect(() => {
