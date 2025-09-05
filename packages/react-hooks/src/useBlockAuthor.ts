@@ -47,7 +47,6 @@ export function useBlockAuthor (header: HeaderExtended | undefined) {
 
     const [authorities, sessionLength] = auxData;
 
-    const blockNumber = header?.number?.toNumber();
     const slotValue = slot?.[0];
 
     if (!slotValue || !authorities.length) {
@@ -57,21 +56,13 @@ export function useBlockAuthor (header: HeaderExtended | undefined) {
     const slotNum = Number(slotValue);
     const sessionLengthNum = sessionLength.toNumber();
 
-    console.log('=== New header ===');
-    console.log('blockNumber:', blockNumber);
-    console.log('slotNum:', slotNum);
-    console.log('sessionLength:', sessionLengthNum);
-
     const virtualStep = Math.floor(slotNum / (sessionLengthNum * 256));
     const leaderIdx = virtualStep % authorities.length;
-
-    console.log('virtualStep:', virtualStep);
-    console.log('leaderIdx:', leaderIdx);
 
     const result = await Promise.resolve(authorities[leaderIdx]);
 
     return result;
-  }, [auxData, slot, header]);
+  }, [auxData, slot]);
 
   useEffect(() => {
     extractAuthor()
