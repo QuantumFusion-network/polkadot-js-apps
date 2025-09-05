@@ -55,13 +55,11 @@ export function useBlockAuthor (header: HeaderExtended | undefined) {
 
     const slotNum = Number(slotValue);
     const sessionLengthNum = sessionLength.toNumber();
-
-    const virtualStep = Math.floor(slotNum / (sessionLengthNum * 256));
+    const SLOT_INCREMENT = 256;
+    const virtualStep = Math.floor(slotNum / (sessionLengthNum * SLOT_INCREMENT));
     const leaderIdx = virtualStep % authorities.length;
 
-    const result = await Promise.resolve(authorities[leaderIdx]);
-
-    return result;
+    return authorities[leaderIdx];
   }, [auxData, slot]);
 
   useEffect(() => {
