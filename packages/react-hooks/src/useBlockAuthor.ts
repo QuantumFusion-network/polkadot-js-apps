@@ -37,7 +37,7 @@ export function useBlockAuthor (header: HeaderExtended | undefined) {
       return api.createType('U64', data.toU8a());
     }
 
-    return undefined;
+    return null;
   }).filter(Boolean);
 
   const extractAuthor = useCallback(async (): Promise<AccountId32 | undefined> => {
