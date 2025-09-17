@@ -16,7 +16,6 @@ export function useBlockAuthor (header: HeaderExtended | undefined) {
   const [auxData, setAuxData] = useState<AuxData | undefined>();
   const { api } = useApi();
 
-  // Load SPIN API data
   useEffect(() => {
     const loadSpinData = async () => {
       try {
@@ -31,7 +30,6 @@ export function useBlockAuthor (header: HeaderExtended | undefined) {
     loadSpinData().catch(console.error);
   }, [api.call.spinApi]);
 
-  // Parse slot from PreRuntime digest
   const slot = header?.digest.logs
     .map((log) => {
       if (log.isPreRuntime) {
@@ -59,9 +57,8 @@ export function useBlockAuthor (header: HeaderExtended | undefined) {
     const slotNum = Number(slotValue);
     const sessionLengthNum = sessionLength.toNumber();
 
-    // Calculate block author using SPIN consensus formula
-    const virtualStep = Math.floor(slotNum / sessionLengthNum);
-    const leaderIdx = virtualStep % authorities.length;
+    const sessionIndex = Math.floor(slotNum / sessionLengthNum);
+    const leaderIdx = sessionIndex % authorities.length;
     const author = authorities[leaderIdx];
 
     return author;
