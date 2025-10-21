@@ -3,43 +3,34 @@
 
 import type { HeaderExtended } from '@polkadot/api-derive/types';
 import type { AccountId32 } from '@polkadot/types/interfaces';
-import type { U32 } from '@polkadot/types-codec';
 
-import { useCallback, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { useApi } from './useApi.js';
 
-type AuxData = [AccountId32[], U32];
+interface SpinModule {
+  blockAuthor: (header: HeaderExtended) => Promise<AccountId32 | undefined>;
+}
 
 export function useBlockAuthor (header: HeaderExtended | undefined) {
   const [author, setAuthor] = useState<AccountId32 | undefined>(undefined);
   const { api } = useApi();
 
-  const slot = header?.digest.logs.map((log) => {
-    if (log.isPreRuntime) {
-      const [_, data] = log.asPreRuntime;
-
-      return api.createType('U64', data.toU8a());
+  useEffect(() => {
+    if (!header) {
+      return;
     }
 
-    return null;
-  }).filter(Boolean);
+    // DEBUG: Check if our code is loaded
+    console.log('🔥 SPIN DEBUG:', {
+      api: (api.derive.spin as SpinModule | undefined) ? 'SPIN module exists' : 'No SPIN module',
+      blockAuthor: (api.derive.spin as SpinModule | undefined)?.blockAuthor ? 'blockAuthor exists' : 'No blockAuthor',
+      header: header.hash.toHex()
+    });
 
-  const extractAuthor = async (): Promise<AccountId32> => {
-    const [authorities, sessionLength]: AuxData = await api.call.spinApi.auxData();
-    const sessionIdx = Math.floor(slot?.[0] as any / sessionLength.toNumber());
-    const authorIdx = sessionIdx % authorities.length;
-
-    return authorities[authorIdx];
-  };
-
-  const extractAuthorCb = useCallback(extractAuthor, [slot, api.call.spinApi]);
-
-  useEffect(() => {
-    extractAuthorCb()
-      .then((a) => setAuthor(a))
-      .catch((e) => console.error(e));
-  }, [extractAuthorCb, api.call.spinApi]);
+    // Temporary stub
+    setAuthor(undefined);
+  }, [api, header]);
 
   return author;
 }
