@@ -155,7 +155,7 @@ function Menu ({ className = '' }: Props): React.ReactElement<Props> {
           <strong>QF networks are under active development:</strong>
           - Expect instability and data loss. <br/>
           - State may be wiped without notice.
-          <span style={{ color: 'green', marginLeft: '10px', fontWeight: 'bold' }}>✨ New Deploy Successful! 🚀</span>
+          <span className='new-deploy-indicator'>✨ New Deploy Successful! 🚀</span>
         </div>
         <NodeInfo className='media--1400'/>
       </div>
@@ -236,6 +236,29 @@ const StyledDiv = styled.div`
 
   .ui--NodeInfo {
     align-self: center;
+  }
+
+  .apps--notice {
+    position: relative;
+  }
+
+  .new-deploy-indicator {
+    color: green;
+    margin-left: 10px;
+    font-weight: bold;
+    animation: pulse 1.5s infinite;
+  }
+
+  @keyframes pulse {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+    100% {
+      opacity: 1;
+    }
   }
 
   @media only screen and (max-width: 800px) {
