@@ -2,9 +2,11 @@ name: Deploy to Cloudflare Workers
 
 on:
   push:
-    branches: [ qf-master ]
+    branches: 
+      - 'feature/cloudflare-deploy'
   pull_request:
-    branches: [ qf-master ]
+    branches: 
+      - 'feature/cloudflare-deploy'
 
 jobs:
   publish:
@@ -16,10 +18,13 @@ jobs:
           node-version: 18
           cache: 'yarn'
       - run: yarn install --frozen-lockfile
-      - run: yarn build
+      - run: yarn build:www
+      - name: Copy Wrangler config
+        run: cp wrangler.toml packages/apps/build/
       - name: Publish to Cloudflare
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          workingDirectory: packages/apps/build
           command: publish --verbose
