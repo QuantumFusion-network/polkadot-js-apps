@@ -21,6 +21,8 @@ jobs:
       - run: yarn build:www
       - name: Copy Wrangler config
         run: cp wrangler.toml packages/apps/build/
+      - name: Install Wrangler
+        run: npm install -g wrangler@4.45.0
       - name: Publish to Cloudflare
         uses: cloudflare/wrangler-action@v3
         with:
