@@ -155,7 +155,6 @@ function Menu ({ className = '' }: Props): React.ReactElement<Props> {
           <strong>QF networks are under active development:</strong>
           - Expect instability and data loss. <br/>
           - State may be wiped without notice!
-          <span className='new-deploy-indicator'>✨ New Deploy Successful! 🚀</span>
         </div>
         <NodeInfo className='media--1400'/>
       </div>
