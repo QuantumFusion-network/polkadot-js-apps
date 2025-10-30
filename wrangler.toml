@@ -5,4 +5,4 @@ workers_dev = true
 
 assets = { directory = "packages/apps/build", binding = "ASSETS" }
 
-routes = [{ pattern = "portal-worker-feature-cloudflare-deploy.seva-dbd.workers.dev/*", zone_name = "workers.dev" }]
+# routes = [{ pattern = "portal-worker-feature-cloudflare-deploy.seva-dbd.workers.dev/*", zone_name = "workers.dev" }]
