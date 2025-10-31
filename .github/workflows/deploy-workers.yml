@@ -4,12 +4,28 @@ on:
   push:
     branches: 
       - 'feature/cloudflare-deploy'
-  pull_request:
-    branches: 
-      - 'feature/cloudflare-deploy'
 
 jobs:
+  checks:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        step: ['lint', 'build:code']
+        # step: ['lint', 'test', 'build:code']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 'lts/*'
+      - name: Set Execute Permissions
+        run: chmod +x ./scripts/*
+      - name: ${{ matrix.step }}
+        run: |
+          yarn install --immutable
+          yarn ${{ matrix.step }}
+
   publish:
+    needs: checks
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
