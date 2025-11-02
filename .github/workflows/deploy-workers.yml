@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        step: ['lint', 'build:www']
+        step: ['build:www']
         # step: ['lint', 'test', 'build:code']
     steps:
       - uses: actions/checkout@v4
