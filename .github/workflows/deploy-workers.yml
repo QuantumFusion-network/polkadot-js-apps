@@ -10,13 +10,13 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        step: ['lint', 'build:code']
+        step: ['lint', 'build:www']
         # step: ['lint', 'test', 'build:code']
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 'lts/*'
+          node-version: 20
       - name: Set Execute Permissions
         run: chmod +x ./scripts/*
       - name: ${{ matrix.step }}
