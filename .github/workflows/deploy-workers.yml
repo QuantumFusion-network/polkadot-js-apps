@@ -67,12 +67,6 @@ jobs:
           echo "📁 Build contents:"
           ls -lh ./packages/apps/build | head -10
 
-      - name: 📋 Copy Wrangler config
-        run: |
-          echo "📋 Copying wrangler.toml to build directory..."
-          cp wrangler.toml packages/apps/build/
-          echo "✅ Configuration copied"
-
       - name: 🏷️ Generate branch-based worker name (Preview)
         if: github.event_name == 'pull_request'
         id: branch-name
@@ -101,7 +95,6 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          workingDirectory: packages/apps/build
           command: deploy --name ${{ steps.branch-name.outputs.worker_name }}
 
       - name: 🚀 Deploy to Cloudflare Workers (Production)
@@ -111,7 +104,6 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          workingDirectory: packages/apps/build
           command: deploy --env production
 
       - name: 🔗 Extract preview URL
