@@ -1,6 +1,5 @@
 export default {
   async fetch(request: Request, env: Env): Promise<Response> {
-    // статика из сборки
     let res = await env.ASSETS.fetch(request);
 
     // SPA fallback
