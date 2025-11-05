@@ -102,13 +102,19 @@ jobs:
               let statusEmoji = wasMerged ? '✅' : '❌'
               let statusText = wasMerged ? 'merged' : 'closed'
               
+              let productionSection = ''
+              if (wasMerged) {
+                const productionUrl = `https://portal-worker-test-production.${{ env.CLOUDFLARE_SUBDOMAIN }}.workers.dev`
+                productionSection = `\n\n📦 **Production deployment is now available at:**\n   ${productionUrl}`
+              }
+              
               const cleanupBody = `🧹 **Preview Deployment Cleaned Up**
 
               ${statusEmoji} **PR Status**: ${statusText}
               🗑️  **Worker Deleted**: \`${workerName}\`
               🌿 **Branch**: \`${branchName}\`
               🔗 **Removed URL**: ~~${wasPreviewUrl}~~
-              🔄 **Status**: Preview deployment removed successfully
+              🔄 **Status**: Preview deployment removed successfully${productionSection}
               
               > The preview deployment has been automatically cleaned up since this PR was ${statusText}.`
               
