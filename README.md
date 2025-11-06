@@ -142,4 +142,3 @@ The accounts are stored in the following directories:
 * Windows: `%APPDATA%\polkadot-apps\polkadot-accounts`
 
 For more details on the desktop app, head over to [Electron package README](https://github.com/polkadot-js/apps/blob/master/packages/apps-electron/README.md).
- 
