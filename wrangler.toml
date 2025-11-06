@@ -2,7 +2,7 @@
 name = "portal-worker-test"
 compatibility_date = "2024-12-01"
 
-# Production environment (для тестирования пока на workers.dev)
+# Production environment
 [env.production]
 name = "portal-worker-test-production"
 
