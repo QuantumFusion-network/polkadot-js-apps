@@ -3,10 +3,10 @@ name: Deploy to Cloudflare Workers
 on:
   push:
     branches:
-      - 'qf-master-test'  # Production deployment on merge
+      - 'qf-master'  # Production deployment on merge
   pull_request:
     branches:
-      - 'qf-master-test'  # Preview deployment for PRs
+      - 'qf-master'  # Preview deployment for PRs
 
 jobs:
   deploy:
@@ -84,7 +84,7 @@ jobs:
           sanitized_branch=$(echo "$sanitized_branch" | cut -c1-50)
           sanitized_branch=$(echo "$sanitized_branch" | sed 's/-$//')
           
-          worker_name="portal-worker-test-preview-$sanitized_branch"
+          worker_name="portal-worker-preview-$sanitized_branch"
           
           echo "worker_name=$worker_name" >> $GITHUB_OUTPUT
           echo "branch_name=$sanitized_branch" >> $GITHUB_OUTPUT
@@ -101,7 +101,7 @@ jobs:
           command: deploy --name ${{ steps.branch-name.outputs.worker_name }}
 
       - name: 🚀 Deploy to Cloudflare Workers (Production)
-        if: github.ref == 'refs/heads/qf-master-test' && github.event_name == 'push'
+        if: github.ref == 'refs/heads/qf-master' && github.event_name == 'push'
         id: deploy-production
         uses: cloudflare/wrangler-action@v3
         with:
@@ -202,7 +202,7 @@ jobs:
           echo "════════════════════════════════════════════════════"
           echo "🎉 PRODUCTION DEPLOYMENT SUCCESSFUL!"
           echo "════════════════════════════════════════════════════"
-          echo "✅ Production URL: https://portal-worker-test-production.${{ env.CLOUDFLARE_SUBDOMAIN }}.workers.dev"
+          echo "✅ Production URL: https://portal.qfnetwork.xyz"
           echo "🌿 Branch: ${{ github.ref_name }}"
           echo "📦 Commit: ${{ github.sha }}"
           echo "════════════════════════════════════════════════════"

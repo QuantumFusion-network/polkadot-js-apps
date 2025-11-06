@@ -1,10 +1,13 @@
 #:schema node_modules/wrangler/config-schema.json
-name = "portal-worker-test"
+name = "portal-worker-preview"
 compatibility_date = "2024-12-01"
 
-# Production environment
+# Production environment with custom domain
 [env.production]
-name = "portal-worker-test-production"
+name = "portal-worker-production"
+routes = [
+  { pattern = "portal.qfnetwork.xyz", custom_domain = true }
+]
 
 # Static assets configuration for SPA (Single Page Application)
 [assets]

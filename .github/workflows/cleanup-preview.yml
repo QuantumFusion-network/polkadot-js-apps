@@ -4,7 +4,7 @@ on:
   pull_request:
     types: [closed]
     branches:
-      - 'qf-master-test'
+      - 'qf-master'
 
 jobs:
   cleanup:
@@ -63,7 +63,7 @@ jobs:
           sanitized_branch=$(echo "$sanitized_branch" | cut -c1-50)
           sanitized_branch=$(echo "$sanitized_branch" | sed 's/-$//')
           
-          worker_name="portal-worker-test-preview-$sanitized_branch"
+          worker_name="portal-worker-preview-$sanitized_branch"
           
           echo "worker_name=$worker_name" >> $GITHUB_OUTPUT
           echo "branch_name=$sanitized_branch" >> $GITHUB_OUTPUT
@@ -104,7 +104,7 @@ jobs:
               
               let productionSection = ''
               if (wasMerged) {
-                const productionUrl = `https://portal-worker-test-production.${{ env.CLOUDFLARE_SUBDOMAIN }}.workers.dev`
+                const productionUrl = `https://portal.qfnetwork.xyz`
                 productionSection = `\n\n📦 **Production deployment is now available at:**\n   ${productionUrl}`
               }
               
@@ -142,7 +142,7 @@ jobs:
           echo "🔗 Removed URL: https://${{ steps.branch-name.outputs.worker_name }}.${{ env.CLOUDFLARE_SUBDOMAIN }}.workers.dev"
           if [ "${{ github.event.pull_request.merged }}" = "true" ]; then
             echo "📦 Production deployment is now available at:"
-            echo "   https://portal-worker-test-production.${{ env.CLOUDFLARE_SUBDOMAIN }}.workers.dev"
+            echo "   https://portal.qfnetwork.xyz"
           fi
           echo "════════════════════════════════════════════════════"
 
