@@ -237,29 +237,6 @@ const StyledDiv = styled.div`
     align-self: center;
   }
 
-  .apps--notice {
-    position: relative;
-  }
-
-  .new-deploy-indicator {
-    color: green;
-    margin-left: 10px;
-    font-weight: bold;
-    animation: pulse 1.5s infinite;
-  }
-
-  @keyframes pulse {
-    0% {
-      opacity: 1;
-    }
-    50% {
-      opacity: 0.5;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
-
   @media only screen and (max-width: 800px) {
     .groupHdr {
       padding: 0.857rem 0.75rem;
