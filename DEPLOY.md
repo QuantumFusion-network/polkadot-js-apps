@@ -117,14 +117,22 @@ After deploying to `qf-master-test`:
 
 You have two options:
 
-#### Option A: Standard PR (Recommended)
+#### Option A: Standard PR
 
 When all commits from `qf-master-test` should go to production:
 
 ```bash
-# Create PR: qf-master-test → qf-master
-# Code review required - wait for approval
-# Merge PR after approval
+# 1. Create branch from qf-master
+git checkout qf-master
+git pull origin qf-master
+git checkout -b release/all-changes-from-test
+
+# 2. Merge all commits from qf-master-test
+git merge qf-master-test
+
+# 3. Push and create PR
+git push origin release/all-changes-from-test
+# Create PR: release/all-changes-from-test → qf-master
 ```
 
 **Result:** All commits from `qf-master-test` are merged into `qf-master` → automatic deployment to `portal.qfnetwork.xyz`
