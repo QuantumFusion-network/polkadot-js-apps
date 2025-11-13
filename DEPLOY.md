@@ -115,33 +115,11 @@ After deploying to `qf-master-test`:
 
 **Important:** Code review is **required** for all PRs to `qf-master` (production branch).
 
-You have two options:
+**Note:** Always use cherry-pick to deploy to production. This ensures isolation and allows multiple developers to work in parallel without conflicts.
 
-#### Option A: Standard PR
+### Deploy to Production using Cherry-pick
 
-When all commits from `qf-master-test` should go to production:
-
-```bash
-# 1. Create branch from qf-master
-git checkout qf-master
-git pull origin qf-master
-git checkout -b release/all-changes-from-test
-
-# 2. Merge all commits from qf-master-test
-git merge qf-master-test
-
-# 3. Push and create PR
-git push origin release/all-changes-from-test
-# Create PR: release/all-changes-from-test → qf-master
-```
-
-**Result:** All commits from `qf-master-test` are merged into `qf-master` → automatic deployment to `portal.qfnetwork.xyz`
-
-**Note:** This PR requires code review approval before merging.
-
-#### Option B: Selective Cherry-pick
-
-When you need only specific commits in production:
+Select specific commits from `qf-master-test` that are ready for production:
 
 ```bash
 # 1. Check commits in qf-master-test
@@ -162,7 +140,9 @@ git push origin release/selected-features
 # Create PR: release/selected-features → qf-master
 ```
 
-**Result:** Only selected commits are merged into `qf-master` → deployment to `portal.qfnetwork.xyz`
+**Result:** Only selected commits are merged into `qf-master` → automatic deployment to `portal.qfnetwork.xyz`
+
+**Note:** This PR requires code review approval before merging.
 
 ## Cloudflare Pages URLs
 
