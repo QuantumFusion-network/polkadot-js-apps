@@ -4,43 +4,28 @@ This document describes the deployment process for `portal.qfnetwork.xyz` using 
 
 ## Overview
 
-The project uses **Cloudflare Pages** for automatic deployment with two environments:
-- **Testing**: `portal-testing.qfnetwork.xyz` (deploys from `qf-master-test` branch)
+The project uses **Cloudflare Pages** for automatic deployment with preview deployments:
 - **Production**: `portal.qfnetwork.xyz` (deploys from `qf-master` branch)
+- **Preview Deployments**: Automatically created for every feature branch and PR
 
 ## Development Workflow
 
-### Step 1: Sync Testing Branch
+### Step 1: Create Feature Branch
 
-Before starting development, sync `qf-master-test` with `qf-master`:
+Create a new branch from `qf-master`:
 
 ```bash
-# Switch to testing branch
-git checkout qf-master-test
+# Switch to production branch
+git checkout qf-master
 
 # Pull latest changes
-git pull origin qf-master-test
+git pull origin qf-master
 
-# Merge latest changes from production
-git merge origin/qf-master
-# or use rebase: git rebase origin/qf-master
-
-# Push updated branch
-git push origin qf-master-test
-```
-
-**Why?** This ensures your testing environment has the latest production code as a base.
-
-### Step 2: Create Feature Branch
-
-Create a new branch from `qf-master-test`:
-
-```bash
-git checkout qf-master-test
+# Create feature branch
 git checkout -b feature/my-new-feature
 ```
 
-### Step 3: Develop and Commit
+### Step 2: Develop and Commit
 
 Make your changes and commit:
 
@@ -55,11 +40,7 @@ git add .
 git commit -m "feat: add new feature"
 ```
 
-### Step 4: Deploy to Testing Environment
-
-You have two options for deploying to testing:
-
-#### Option A: Pull Request (Recommended for Preview URLs)
+### Step 3: Create Pull Request
 
 Push your feature branch and create a Pull Request:
 
@@ -67,214 +48,135 @@ Push your feature branch and create a Pull Request:
 # Push feature branch
 git push origin feature/my-new-feature
 
-# Create PR: feature/my-new-feature → qf-master-test
-# Merge PR (no review required for testing branch)
+# Create PR: feature/my-new-feature → qf-master
 ```
 
-**What happens?** 
-- Cloudflare Pages automatically creates preview URLs (see [Preview URLs](#preview-urls-for-pull-requests) section below)
-- After merge: automatic deployment to `portal-testing.qfnetwork.xyz`
+**What happens automatically?**
+- Cloudflare Pages creates preview deployment URLs
+- Preview URL is automatically added to the PR by Cloudflare
+- You can test your changes on the preview URL before merging
 
 **Where to find preview URLs:**
-- GitHub PR → "Checks" tab
-- Cloudflare automatically comments PR with preview links
+- GitHub PR → Cloudflare automatically comments with preview links
+- GitHub PR → "Checks" tab → Cloudflare Pages deployment status
 
-#### Option B: Direct Push (Faster, No Preview URLs)
+### Step 4: Test on Preview Deployment
 
-For quick testing without preview URLs, you can push directly:
+1. **Preview URL** is automatically available in the PR
+2. **Test your changes** on the preview environment
+3. **Verify everything works** before merging to production
+4. Preview URL updates automatically with each new commit in the PR
+
+### Step 5: Merge to Production
+
+After testing and code review approval:
 
 ```bash
-# Merge feature branch into qf-master-test locally
-git checkout qf-master-test
-git merge feature/my-new-feature
-
-# Push directly (no PR needed)
-git push origin qf-master-test
+# Merge PR in GitHub (or via command line)
+# PR: feature/my-new-feature → qf-master
 ```
 
-**What happens?**
-- Direct deployment to `portal-testing.qfnetwork.xyz`
-- No preview URLs created (this is not a PR)
-- Faster workflow for quick iterations
-
-**Where to find deployment URL:**
-- Cloudflare Dashboard → `portal-testing` → "Deployments" tab
-- Or directly: `https://portal-testing.qfnetwork.xyz`
-
-**Note:** Code review is **not required** for `qf-master-test` branch. Review is only required for PRs to `qf-master` (production).
-
-### Step 5: Test on Testing Environment
-
-After deploying to `qf-master-test`:
-
-1. **Automatic deployment** happens to `portal-testing.qfnetwork.xyz`
-2. **Test your changes** on the testing environment
-3. **Verify everything works** before deploying to production
-
-### Step 6: Deploy to Production
+**What happens automatically?**
+- PR is merged into `qf-master`
+- Cloudflare Pages automatically deploys to `portal.qfnetwork.xyz`
+- Preview deployment is automatically cleaned up
 
 **Important:** Code review is **required** for all PRs to `qf-master` (production branch).
-
-**Note:** Always use cherry-pick to deploy to production. This ensures isolation and allows multiple developers to work in parallel without conflicts.
-
-### Deploy to Production using Cherry-pick
-
-Select specific commits from `qf-master-test` that are ready for production:
-
-```bash
-# 1. Check commits in qf-master-test
-git checkout qf-master-test
-git log --oneline -10
-
-# 2. Create branch from qf-master
-git checkout qf-master
-git pull origin qf-master
-git checkout -b release/selected-features
-
-# 3. Cherry-pick specific commits
-git cherry-pick <commit-hash-1> <commit-hash-2>
-# or range: git cherry-pick <commit-1>^..<commit-2>
-
-# 4. Push and create PR
-git push origin release/selected-features
-# Create PR: release/selected-features → qf-master
-```
-
-**Result:** Only selected commits are merged into `qf-master` → automatic deployment to `portal.qfnetwork.xyz`
-
-**Note:** This PR requires code review approval before merging.
 
 ## Cloudflare Pages URLs
 
 ### Preview URLs (for Pull Requests)
 
-When you create a PR, Cloudflare Pages automatically generates preview URLs for testing.
+When you create a PR from any feature branch to `qf-master`, Cloudflare Pages automatically generates preview URLs:
 
-#### For PR: `feature/xxx` → `qf-master-test`
-
-**Project: `portal-testing`** creates:
-- **Preview URL (commit-specific)**: `https://[commit-hash].portal-testing.pages.dev`
+- **Preview URL (commit-specific)**: `https://[commit-hash].portal-prod-67d.pages.dev`
   - Unique URL for each commit
   - Updates with every new commit in PR
   - Use to test a specific commit state
   
-- **Branch Preview URL**: `https://[branch-name].portal-testing.pages.dev`
+- **Branch Preview URL**: `https://[branch-name].portal-prod-67d.pages.dev`
   - Stable URL for the entire branch
   - Always shows the latest commit from the branch
   - Use for continuous testing
 
-**Project: `portal-prod`** also creates previews:
-- **Preview URL**: `https://[commit-hash].portal-prod-67d.pages.dev`
-- **Branch Preview URL**: `https://[branch-name].portal-prod-67d.pages.dev`
+**Note:** Preview URLs are automatically added to the PR by Cloudflare and cleaned up when PR is closed.
 
-#### For PR: `qf-master-test` → `qf-master`
+### Production URL (after merge)
 
-**Project: `portal-prod`** creates:
-- **Preview URL**: `https://[commit-hash].portal-prod-67d.pages.dev`
-- **Branch Preview URL**: `https://qf-master-test.portal-prod-67d.pages.dev`
-
-**Project: `portal-testing`** creates:
-- **Preview URL**: `https://[commit-hash].portal-testing.pages.dev`
-- **Branch Preview URL**: Not created (because `qf-master-test` is the production branch for `portal-testing`)
-
-### Production URLs (after merge)
-
-After merging to the production branch:
-
-- **Testing environment**: `https://portal-testing.qfnetwork.xyz`
-  - Deploys automatically when merging to `qf-master-test`
-  
+After merging to `qf-master`:
 - **Production environment**: `https://portal.qfnetwork.xyz`
   - Deploys automatically when merging to `qf-master`
 
 ## URL Summary Table
 
-| Event                                | Project          | URL Type       | Example                                            | Purpose                     |
-| ------------------------------------ | ---------------- | -------------- | -------------------------------------------------- | --------------------------- |
-| PR: `feature/xxx` → `qf-master-test` | `portal-testing` | Commit Preview | `https://abc123.portal-testing.pages.dev`          | Test specific commit        |
-| PR: `feature/xxx` → `qf-master-test` | `portal-testing` | Branch Preview | `https://feature-xxx.portal-testing.pages.dev`     | Test latest branch state    |
-| PR: `feature/xxx` → `qf-master-test` | `portal-prod`    | Commit Preview | `https://abc123.portal-prod-67d.pages.dev`         | Preview in prod environment |
-| PR: `feature/xxx` → `qf-master-test` | `portal-prod`    | Branch Preview | `https://feature-xxx.portal-prod-67d.pages.dev`    | Preview branch in prod      |
-| Merge to `qf-master-test`            | `portal-testing` | Production     | `https://portal-testing.qfnetwork.xyz`             | Testing environment         |
-| Direct push to `qf-master-test`      | `portal-testing` | Production     | `https://portal-testing.qfnetwork.xyz`             | Testing environment (no PR) |
-| PR: `qf-master-test` → `qf-master`   | `portal-prod`    | Commit Preview | `https://def456.portal-prod-67d.pages.dev`         | Preview before prod deploy  |
-| PR: `qf-master-test` → `qf-master`   | `portal-prod`    | Branch Preview | `https://qf-master-test.portal-prod-67d.pages.dev` | Preview branch before prod  |
-| Merge to `qf-master`                 | `portal-prod`    | Production     | `https://portal.qfnetwork.xyz`                     | Production environment      |
+| Event                          | URL Type       | Example                                          | Purpose                    |
+| ------------------------------ | -------------- | ------------------------------------------------ | -------------------------- |
+| PR: `feature/xxx` → `qf-master` | Commit Preview | `https://abc123.portal-prod-67d.pages.dev`       | Test specific commit       |
+| PR: `feature/xxx` → `qf-master` | Branch Preview | `https://feature-xxx.portal-prod-67d.pages.dev`  | Test latest branch state   |
+| Merge to `qf-master`           | Production     | `https://portal.qfnetwork.xyz`                   | Production environment     |
 
 ## Quick Reference
 
 ### Common Commands
 
 ```bash
-# Sync testing branch
-git checkout qf-master-test && git pull origin qf-master && git push origin qf-master-test
-
 # Create feature branch
-git checkout qf-master-test && git checkout -b feature/my-feature
+git checkout qf-master && git pull origin qf-master && git checkout -b feature/my-feature
 
-# Direct push to testing (no PR, no review)
-git checkout qf-master-test && git merge feature/my-feature && git push origin qf-master-test
-
-# Cherry-pick commits
-git checkout qf-master && git checkout -b release/selected && git cherry-pick <hash1> <hash2>
+# Push and create PR
+git push origin feature/my-feature
+# Then create PR in GitHub: feature/my-feature → qf-master
 ```
 
 ### Deployment Flow Diagram
 
 ```
 ┌─────────────────────────────────────────────────────────┐
-│  1. Sync qf-master-test ← qf-master                    │
+│  1. Create feature branch from qf-master              │
 └──────────────────────┬──────────────────────────────────┘
                        │
                        ▼
 ┌─────────────────────────────────────────────────────────┐
-│  2. Create feature branch from qf-master-test         │
+│  2. Develop → Commit → Push                           │
 └──────────────────────┬──────────────────────────────────┘
                        │
                        ▼
 ┌─────────────────────────────────────────────────────────┐
-│  3. Develop → Commit → Push                            │
+│  3. Create PR: feature → qf-master                    │
+│     → Cloudflare creates preview URL automatically    │
 └──────────────────────┬──────────────────────────────────┘
                        │
                        ▼
 ┌─────────────────────────────────────────────────────────┐
-│  4. PR: feature → qf-master-test                      │
-│     → Cloudflare creates preview URLs                  │
+│  4. Test on preview URL                                │
+│     (URL added to PR by Cloudflare)                    │
 └──────────────────────┬──────────────────────────────────┘
                        │
                        ▼
 ┌─────────────────────────────────────────────────────────┐
-│  5. Merge → Deploy to portal-testing.qfnetwork.xyz    │
+│  5. Code review and approval                           │
 └──────────────────────┬──────────────────────────────────┘
                        │
                        ▼
 ┌─────────────────────────────────────────────────────────┐
-│  6. PR: qf-master-test → qf-master                     │
-│     OR Cherry-pick selected commits                    │
-└──────────────────────┬──────────────────────────────────┘
-                       │
-                       ▼
-┌─────────────────────────────────────────────────────────┐
-│  7. Merge → Deploy to portal.qfnetwork.xyz           │
+│  6. Merge → Deploy to portal.qfnetwork.xyz           │
 └─────────────────────────────────────────────────────────┘
 ```
 
 ## Code Review Policy
 
-- **Testing branch (`qf-master-test`)**: No review required
-  - Can merge PRs directly or push directly
-  - Use for quick testing and iteration
-  
 - **Production branch (`qf-master`)**: Review **required**
-  - All PRs must be reviewed and approved
+  - All PRs must be reviewed and approved before merging
   - Cannot push directly (branch protection)
+  - Preview URLs allow testing before merge
 
 ## Notes
 
 - **Preview URLs** are automatically created by Cloudflare Pages for every PR
 - **Preview URLs** are automatically cleaned up when PR is closed
-- **Production deployments** happen automatically after merge to production branch
-- Use **cherry-pick** when you need selective commits in production
-- Always test on `portal-testing.qfnetwork.xyz` before deploying to production
-- **Direct push** to `qf-master-test` is allowed (no review needed)
+- **Production deployments** happen automatically after merge to `qf-master`
 - **Direct push** to `qf-master` is **not allowed** (requires PR with review)
+- Preview deployments use the same build configuration as production, ensuring consistency
+- Each commit in a PR gets its own preview URL for isolated testing
+- Any feature branch created from `qf-master` will get deployed automatically to the preview env and the URL will be added to the PR by Cloudflare
+- When the PR is merged to `qf-master`, Cloudflare Pages will deploy it to production: `portal.qfnetwork.xyz`
