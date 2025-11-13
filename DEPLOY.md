@@ -72,7 +72,7 @@ git push origin feature/my-new-feature
 ```
 
 **What happens?** 
-- Cloudflare Pages automatically creates preview URLs (see [Preview URLs](#preview-urls) section below)
+- Cloudflare Pages automatically creates preview URLs (see [Preview URLs](#preview-urls-for-pull-requests) section below)
 - After merge: automatic deployment to `portal-testing.qfnetwork.xyz`
 
 **Where to find preview URLs:**
