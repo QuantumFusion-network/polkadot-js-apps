@@ -84,7 +84,7 @@ export const testParaChains: Omit<EndpointOption, 'teleport'>[] = [
     providers: {
       'QF Network': 'wss://para-test.qfnetwork.xyz'
     },
-    text: 'QF Testnet Parachain (Paseo)',
+    text: 'QF Testnet (Paseo)',
     ui: {
       color: '#000000',
       logo: chainsQfNetworkPNG
