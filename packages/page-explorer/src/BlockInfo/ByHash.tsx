@@ -11,9 +11,9 @@ import { Link } from 'react-router-dom';
 
 import { AddressSmall, Columar, LinkExternal, MarkError, Table } from '@polkadot/react-components';
 import { useApi, useIsMountedRef } from '@polkadot/react-hooks';
+import { useBlockAuthor } from '@polkadot/react-hooks/useBlockAuthor';
 import { convertWeight } from '@polkadot/react-hooks/useWeight';
 import { formatNumber, isBn } from '@polkadot/util';
-import { useBlockAuthor } from '@polkadot/react-hooks/useBlockAuthor';
 
 import Events from '../Events.js';
 import { useTranslation } from '../translate.js';
