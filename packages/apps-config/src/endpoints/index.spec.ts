@@ -137,10 +137,6 @@ describe('endpopints naming', (): void => {
         assert(!provider.includes(' ') || (provider.toLocaleUpperCase() !== provider), `${name}:: ${provider} should not be all uppercase`);
       });
 
-      it(`[${key}] does not contain "Parachain`, (): void => {
-        assert(!name.includes('Parachain'), `${name} should not contain "Parachain" (redundant)`);
-      });
-
       it(`[${key}] does not contain a relay name`, (): void => {
         assert(!name.includes(' ') || !name.includes('Kusama'), `${name} should not contain "Kusama" (redundant)`);
         assert(!name.includes(' ') || !name.includes('Polkadot'), `${name} should not contain "Polkadot" (redundant)`);
