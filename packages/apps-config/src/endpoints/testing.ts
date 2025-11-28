@@ -1,11 +1,9 @@
 // Copyright 2017-2025 @polkadot/apps-config authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
-import type {EndpointOption} from './types.js';
+import type { EndpointOption } from './types.js';
 
-import {
-  chainsQfNetworkPNG,
-} from '../ui/logos/chains/index.js';
+import { chainsQfNetworkPNG } from '../ui/logos/chains/index.js';
 
 export * from './testingRelayWestend.js';
 
@@ -34,7 +32,7 @@ export const devChains: Omit<EndpointOption, 'teleport'>[] = [
       color: '#000000',
       logo: chainsQfNetworkPNG
     }
-  },
+  }
 ];
 
 export const testChains: Omit<EndpointOption, 'teleport'>[] = [
@@ -50,7 +48,6 @@ export const testChains: Omit<EndpointOption, 'teleport'>[] = [
     }
   }
 ];
-
 
 export const mainParaChains: Omit<EndpointOption, 'teleport'>[] = [
   {
@@ -69,10 +66,10 @@ export const mainParaChains: Omit<EndpointOption, 'teleport'>[] = [
 export const devParaChains: Omit<EndpointOption, 'teleport'>[] = [
   {
     info: 'qf',
+    isDisabled: true,
     providers: {
       'QF Network': 'wss://para-dev.qfnetwork.xyz'
     },
-    isDisabled: true,
     text: 'QF Devnet Parachain (Paseo)',
     ui: {
       color: '#000000',

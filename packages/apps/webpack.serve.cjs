@@ -12,18 +12,18 @@ module.exports = merge(
   {
     devServer: {
       // [[[
-      bonjour: false,
       allowedHosts: [
         'localhost',
         'dev.qfnetwork.xyz',
         '.qfnetwork.xyz'
       ],
-      host: '127.0.0.1',
-      hot: false,
+      bonjour: false,
       client: {
         logging: 'info',
         overlay: false // TODO: Remove this workaround after deployment process is fixed (see PR #40)
       },
+      host: '127.0.0.1',
+      hot: false,
       // ]]]
       open: false,
       port: 3000,

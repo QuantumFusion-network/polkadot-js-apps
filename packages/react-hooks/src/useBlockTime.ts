@@ -21,7 +21,7 @@ export function calcBlockTime (blockTime: BN, blocks: BN, t: (key: string, optio
 
   // time calculations are using the absolute value (< 0 detection only on strings)
   const time = extractTime(Math.abs(value));
-  const { days, hours, minutes, seconds, milliseconds } = time;
+  const { days, hours, milliseconds, minutes, seconds } = time;
 
   return [
     blockTime.toNumber(),
@@ -50,7 +50,7 @@ export function calcBlockTime (blockTime: BN, blocks: BN, t: (key: string, optio
         ? (milliseconds > 1)
           ? t('{{milliseconds}} ms', { replace: { milliseconds } })
           : t('1 ms')
-        : null  
+        : null
     ]
       .filter((s): s is string => !!s)
       .slice(0, 2)

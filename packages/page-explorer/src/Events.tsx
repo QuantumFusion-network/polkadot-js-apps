@@ -53,7 +53,7 @@ function Events ({ className = '', emptyLabel, error, eventClassName, events, la
   return (
     <div>
       <Table
-        bs={"5px"}
+        bs={'5px'}
         className={className}
         empty={emptyLabel || t('No events available')}
         header={header}
@@ -66,7 +66,8 @@ function Events ({ className = '', emptyLabel, error, eventClassName, events, la
               key='error'
             >
               <td><MarkError
-                content={t('Unable to decode the block events. {{error}}', {replace: {error: error.message}})}/></td>
+                content={t('Unable to decode the block events. {{error}}', { replace: { error: error.message } })}
+              /></td>
             </tr>
           )
           : events?.map((e) => renederEvent(eventClassName, e))

@@ -1,20 +1,20 @@
 // Copyright 2017-2025 @polkadot/app-explorer authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
-import type {HeaderExtended} from '@polkadot/api-derive/types';
+import type { HeaderExtended } from '@polkadot/api-derive/types';
 
 import React from 'react';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 // import {AddressSmall} from '@polkadot/react-components';
 // import {useBlockAuthor} from '@polkadot/react-hooks/useBlockAuthor';
-import {formatNumber} from '@polkadot/util';
+import { formatNumber } from '@polkadot/util';
 
 interface Props {
   value: HeaderExtended;
 }
 
-function BlockHeader({value}: Props): React.ReactElement<Props> | null {
+function BlockHeader ({ value }: Props): React.ReactElement<Props> | null {
   // const author = useBlockAuthor(value);
   const author = null;
 
@@ -35,7 +35,7 @@ function BlockHeader({value}: Props): React.ReactElement<Props> | null {
         {hashHex}</td>
       {!!author &&
         <td className='address'>
-          <AddressSmall value={author}/>
+          {/* <AddressSmall value={author} /> */}
         </td>
       }
     </tr>

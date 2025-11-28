@@ -19,11 +19,10 @@ const THRESHOLD = BN_THOUSAND.div(BN_TWO);
 const DEFAULT_TIME = new BN(6_000);
 
 function calcInterval (api: ApiPromise): BN {
-
   const spinBlockTime = api.consts?.spin?.slotDuration;
 
-  if(spinBlockTime && !spinBlockTime?.isEmpty) {
-    return new BN(spinBlockTime.toString())
+  if (spinBlockTime && !spinBlockTime?.isEmpty) {
+    return new BN(spinBlockTime.toString());
   }
 
   return bnMin(A_DAY, (
