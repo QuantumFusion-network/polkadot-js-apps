@@ -65,9 +65,14 @@ function Summary ({ eventCount }: Props): React.ReactElement {
           {formatNumber(eventCount)}
         </CardSummary>
         {api.query.grandpa && (
-          <CardSummary label={t('finalized')}>
-            <BestFinalized />
-          </CardSummary>
+          <>
+            <CardSummary label={t('secure finality')}>
+              <BestFinalized />
+            </CardSummary>
+            <CardSummary label={t('fast finality')}>
+              <BestFinalized />
+            </CardSummary>
+          </>
         )}
         <CardSummary label={t('best')}>
           <BestNumber />
