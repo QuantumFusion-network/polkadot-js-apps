@@ -5,7 +5,7 @@ import React from 'react';
 
 import { CardSummary, SummaryBox } from '@polkadot/react-components';
 import { useApi } from '@polkadot/react-hooks';
-import { BestFinalized, BestNumber, BlockToTime, TimeNow, TotalInactive, TotalIssuance } from '@polkadot/react-query';
+import { BestFinalized, BestNumber, BlockToTime, SecureFinalized, TimeNow, TotalInactive, TotalIssuance } from '@polkadot/react-query';
 import { BN_ONE, formatNumber } from '@polkadot/util';
 
 import SummarySession from './SummarySession.js';
@@ -18,6 +18,10 @@ interface Props {
 function Summary ({ eventCount }: Props): React.ReactElement {
   const { t } = useTranslation();
   const { api } = useApi();
+
+  // Console logs for debugging
+  console.log('Summary: api.query.spinAnchoring exists?', !!api.query.spinAnchoring);
+  console.log('Summary: api.query.grandpa exists?', !!api.query.grandpa);
 
   return (
     <SummaryBox>
@@ -64,15 +68,15 @@ function Summary ({ eventCount }: Props): React.ReactElement {
         >
           {formatNumber(eventCount)}
         </CardSummary>
+        {api.query.spinAnchoring && (
+          <CardSummary label={t('secure finality')}>
+            <SecureFinalized />
+          </CardSummary>
+        )}
         {api.query.grandpa && (
-          <>
-            <CardSummary label={t('secure finality')}>
-              <BestFinalized />
-            </CardSummary>
-            <CardSummary label={t('fast finality')}>
-              <BestFinalized />
-            </CardSummary>
-          </>
+          <CardSummary label={t('fast finality')}>
+            <BestFinalized />
+          </CardSummary>
         )}
         <CardSummary label={t('best')}>
           <BestNumber />
