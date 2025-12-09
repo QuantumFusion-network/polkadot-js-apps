@@ -1,4 +1,4 @@
-// Copyright 2017-2025 @polkadot/react-query authors & contributors
+// Copyright 2025 QF Network
 // SPDX-License-Identifier: Apache-2.0
 
 import type { u32 } from '@polkadot/types';
