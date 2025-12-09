@@ -16,14 +16,7 @@ interface Props {
 
 function SecureFinalized ({ children, className = '', label }: Props): React.ReactElement<Props> {
   const { api } = useApi();
-  
-  // Console logs for debugging
-  console.log('SecureFinalized: api.query.spinAnchoring exists?', !!api.query.spinAnchoring);
-  console.log('SecureFinalized: api.query.spinAnchoring', api.query.spinAnchoring);
-  
   const secureUpTo = useCall<u32>(api.query.spinAnchoring?.secureUpTo);
-  
-  console.log('SecureFinalized: secureUpTo value', secureUpTo?.toString());
 
   return (
     <div className={`${className} ${secureUpTo ? '' : '--tmp'}`}>
@@ -35,4 +28,3 @@ function SecureFinalized ({ children, className = '', label }: Props): React.Rea
 }
 
 export default React.memo(SecureFinalized);
-

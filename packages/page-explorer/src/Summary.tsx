@@ -19,10 +19,6 @@ function Summary ({ eventCount }: Props): React.ReactElement {
   const { t } = useTranslation();
   const { api } = useApi();
 
-  // Console logs for debugging
-  console.log('Summary: api.query.spinAnchoring exists?', !!api.query.spinAnchoring);
-  console.log('Summary: api.query.grandpa exists?', !!api.query.grandpa);
-
   return (
     <SummaryBox>
       <section>
