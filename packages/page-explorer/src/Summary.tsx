@@ -5,7 +5,7 @@ import React from 'react';
 
 import { CardSummary, SummaryBox } from '@polkadot/react-components';
 import { useApi } from '@polkadot/react-hooks';
-import { BestFinalized, BestNumber, BlockToTime, TimeNow, TotalInactive, TotalIssuance } from '@polkadot/react-query';
+import { BestFinalized, BestNumber, BlockToTime, SecureFinalized, TimeNow, TotalInactive, TotalIssuance } from '@polkadot/react-query';
 import { BN_ONE, formatNumber } from '@polkadot/util';
 
 import SummarySession from './SummarySession.js';
@@ -64,8 +64,13 @@ function Summary ({ eventCount }: Props): React.ReactElement {
         >
           {formatNumber(eventCount)}
         </CardSummary>
+        {api.query.spinAnchoring && (
+          <CardSummary label={t('secure finality')}>
+            <SecureFinalized />
+          </CardSummary>
+        )}
         {api.query.grandpa && (
-          <CardSummary label={t('finalized')}>
+          <CardSummary label={t('fast finality')}>
             <BestFinalized />
           </CardSummary>
         )}
