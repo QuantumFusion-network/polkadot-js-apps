@@ -5,7 +5,7 @@ import type { TFunction, TOptions } from '../types.js';
 import type { LinkOption } from './types.js';
 
 import { createOwn } from './development.js';
-import { devChains, devParaChains, testChains, testParaChains } from './testing.js';
+import { devChains, devParaChains, mainChains, mainParaChains, testChains, testParaChains } from './testing.js';
 import { expandEndpoints } from './util.js';
 
 export { CUSTOM_ENDPOINT_KEY } from './development.js';
@@ -22,17 +22,18 @@ function defaultT (keyOrText: string, text?: string | TOptions, options?: TOptio
 
 export function createWsEndpoints (t: TFunction = defaultT, firstOnly = false, withSort = true): LinkOption[] {
   return [
-
-    // {
-    //   isDisabled: false,
-    //   isHeader: true,
-    //   text: t('rpc.header.test', 'Main networks', { ns: 'apps-config' }),
-    //   textBy: '',
-    //   ui: {},
-    //   value: ''
-    // },
-    // ...expandEndpoints(t, mainChains, firstOnly, withSort),
-    // ---
+    {
+      isDisabled: false,
+      isHeader: true,
+      text: t('rpc.header.live', 'Main networks', { ns: 'apps-config' }),
+      textBy: '',
+      ui: {},
+      value: ''
+    },
+    ...expandEndpoints(t, [
+      ...mainChains,
+      ...mainParaChains
+    ], firstOnly, withSort),
     {
       isDisabled: false,
       isHeader: true,
