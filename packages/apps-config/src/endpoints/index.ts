@@ -25,7 +25,7 @@ export function createWsEndpoints (t: TFunction = defaultT, firstOnly = false, w
     {
       isDisabled: false,
       isHeader: true,
-      text: t('rpc.header.live', 'Mainnet networks', { ns: 'apps-config' }),
+      text: t('rpc.header.live', 'Main networks', { ns: 'apps-config' }),
       textBy: '',
       ui: {},
       value: ''
