@@ -11,7 +11,7 @@ export const mainChains: Omit<EndpointOption, 'teleport'>[] = [
   {
     info: 'qf2',
     providers: {
-      'QF Network': 'wss://mainnet.qfnode.net'
+      'QF Network': 'wss://main.qfnetwork.xyz'
     },
     text: 'QF Network',
     ui: {
@@ -53,9 +53,9 @@ export const mainParaChains: Omit<EndpointOption, 'teleport'>[] = [
   {
     info: 'qf',
     providers: {
-      'QF Network': 'wss://para.mainnet.qfnode.net'
+      'QF Network': 'wss://para.main.qfnetwork.xyz'
     },
-    text: 'QF Network Parachain (Polkadot)',
+    text: 'QF Network',
     ui: {
       color: '#000000',
       logo: chainsQfNetworkPNG
