@@ -487,7 +487,7 @@ export const prodChains: Omit<EndpointOption, 'teleport'>[] = [
     }
   },
   {
-    info: 'qf2',
+    info: 'quantum-fusion',
     providers: {
       'QF Network': 'wss://mainnet.qfnode.net'
     },
