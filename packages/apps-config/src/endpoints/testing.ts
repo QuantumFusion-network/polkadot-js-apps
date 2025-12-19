@@ -9,6 +9,7 @@ export * from './testingRelayWestend.js';
 
 export const mainChains: Omit<EndpointOption, 'teleport'>[] = [
   {
+    // TODO: rename to qfnetwork or leave as is?
     info: 'qf2',
     providers: {
       'QF Network': 'wss://main.qfnetwork.xyz'
@@ -23,6 +24,7 @@ export const mainChains: Omit<EndpointOption, 'teleport'>[] = [
 
 export const devChains: Omit<EndpointOption, 'teleport'>[] = [
   {
+    // TODO: rename to qfnetwork or leave as is?
     info: 'qf',
     providers: {
       'QF Network': 'wss://dev.qfnetwork.xyz'
@@ -37,6 +39,7 @@ export const devChains: Omit<EndpointOption, 'teleport'>[] = [
 
 export const testChains: Omit<EndpointOption, 'teleport'>[] = [
   {
+    // TODO: rename to qfnetwork or leave as is?
     info: 'qf',
     providers: {
       'QF Network': 'wss://test.qfnetwork.xyz'
@@ -51,6 +54,7 @@ export const testChains: Omit<EndpointOption, 'teleport'>[] = [
 
 export const mainParaChains: Omit<EndpointOption, 'teleport'>[] = [
   {
+    // TODO: rename to qfnetwork or leave as is?
     info: 'qf',
     providers: {
       'QF Network': 'wss://para.main.qfnetwork.xyz'
@@ -65,6 +69,7 @@ export const mainParaChains: Omit<EndpointOption, 'teleport'>[] = [
 
 export const devParaChains: Omit<EndpointOption, 'teleport'>[] = [
   {
+    // TODO: rename to qfnetwork or leave as is?
     info: 'qf',
     isDisabled: true,
     providers: {
@@ -80,6 +85,7 @@ export const devParaChains: Omit<EndpointOption, 'teleport'>[] = [
 
 export const testParaChains: Omit<EndpointOption, 'teleport'>[] = [
   {
+    // TODO: rename to qfnetwork or leave as is?
     info: 'qf',
     providers: {
       'QF Network': 'wss://para-test.qfnetwork.xyz'
