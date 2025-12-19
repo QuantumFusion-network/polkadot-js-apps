@@ -701,7 +701,7 @@ export const prodParasPolkadot: Omit<EndpointOption, 'teleport'>[] = [
   {
     homepage: 'https://qfnetwork.xyz/',
     info: 'qfnetwork',
-    paraId: 0, // TODO: Add actual paraId when available
+    paraId: 3426,
     providers: {
       'QF Network': 'wss://para.mainnet.qfnode.net'
     },
