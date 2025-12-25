@@ -229,7 +229,7 @@ function ClaimsApp ({ basePath }: Props): React.ReactElement<Props> {
             // to be able to know the statement kind so that the users can sign it
             (step >= Step.ETHAddress && !isPreclaimed && !isOldClaimProcess) && (
               <Card withBottomMargin>
-                <h2>{t('2. Enter the ETH address from the sale.')}</h2>
+                <h2>{t('2. Enter your Ethereum address.')}</h2>
                 <Input
                   autoFocus
                   className='full'

@@ -8,7 +8,7 @@
   "1 min": "1 minuto",
   "1 s": "1 segundo",
   "1. Select your {{chain}} account": "Selecciona tu cuenta para {{chain}}",
-  "2. Enter the ETH address from the sale.": "Introduzca la address de ETH de la venta.",
+  "2. Enter your Ethereum address.": "",
   "2. Sign ETH transaction": "Firma de la transacción de ETH",
   "<empty>": "<vacío>",
   "<unknown>": "<desconocido>",
