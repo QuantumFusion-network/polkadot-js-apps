@@ -183,7 +183,7 @@
   "Please read these terms and conditions carefully. By submitting this statement, you are deemed to have accepted these Terms and Conditions. If you do not agree to these terms, please refrain from accessing or proceeding. You can also find them at:": "本規約をよくお読みください。本ステートメントを送信することで、本規約に同意したものとみなされます。これらの条件に同意しない場合は、アクセスまたは先に進むことをお控えください。また、以下のサイトにも掲載されています",
   "Positive number between 1 and {{memberCount}}": "1から {{memberCount}} 間の整数です",
   "Positive number greater than or equal to {{nextFreeId}}": "{{nextFreeId}}よりも大きいか同じ整数値",
-  "Pre-sale ethereum address": "プレセールのEthereumアドレス",
+  "Ethereum address": "",
   "Propose": "提案",
   "Propose a council motion": "カウンシルモーションを提出する",
   "Provide judgement": "ジャッジメントを提供する",

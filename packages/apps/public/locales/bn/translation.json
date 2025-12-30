@@ -393,7 +393,7 @@
   "Positive number between 1 and {{memberCount}}": "১ এবং {{memberCount}}-এর মধ্যকার ইতিবাচক নম্বর",
   "Positive number greater than or equal to {{nextFreeId}}": "{{nextFreeId}} থেকে বড় বা সমান ইতিবাচক নম্বর ",
   "Potential dispatch of referendum {{id}} (if passed)": "গণভোটের সম্ভাব্য নির্গমণ {{id}} (যদি পাশ হয়)",
-  "Pre-sale ethereum address": "বিক্রয়-পূর্ব ইথেরিয়াম-এর ঠিকানা",
+  "Ethereum address": "",
   "Prefix indicates the ss58 address format in this network, it is a 16 bit unsigned integer that describes the precise format of the bytes of the address": "উপসর্গ এই নেটওয়ার্কে এসএস৫৮ ঠিকানার ফরম্যাট নির্দেশ করে, এটা ০ ~ ২৫৫ এর মধ্যকার একটি নম্বর যা ঠিকানাটির গুরুত্বপূর্ণ অংশগুলো বাতলে দেয়",
   "Preimage": "প্রিমেজ",
   "Preparing QR for signing": "সইয়ের জন্য কিউআর তৈরি",

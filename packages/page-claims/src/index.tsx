@@ -233,7 +233,7 @@ function ClaimsApp ({ basePath }: Props): React.ReactElement<Props> {
                 <Input
                   autoFocus
                   className='full'
-                  label={t('Pre-sale ethereum address')}
+                  label={t('Ethereum address')}
                   onChange={onChangeEthereumAddress}
                   value={ethereumAddress || ''}
                 />

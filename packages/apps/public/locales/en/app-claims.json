@@ -11,7 +11,7 @@
   "Loading": "Loading",
   "Paste the signed message into the field below. The placeholder text is there as a hint to what the message should look like:": "Paste the signed message into the field below. The placeholder text is there as a hint to what the message should look like:",
   "Please read these terms and conditions carefully. By submitting this statement, you are deemed to have accepted these Terms and Conditions. If you do not agree to these terms, please refrain from accessing or proceeding. You can also find them at:": "Please read these terms and conditions carefully. By submitting this statement, you are deemed to have accepted these Terms and Conditions. If you do not agree to these terms, please refrain from accessing or proceeding. You can also find them at:",
-  "Pre-sale ethereum address": "Pre-sale ethereum address",
+  "Ethereum address": "",
   "There is no on-chain attestation statement associated with the Ethereum account {{ethereumAddress}}": "There is no on-chain attestation statement associated with the Ethereum account {{ethereumAddress}}",
   "There is no on-chain claimable balance associated with the Ethereum account {{ethereumAddress}}": "There is no on-chain claimable balance associated with the Ethereum account {{ethereumAddress}}",
   "Warning: we did not find any attest statement for {{chain}}": "Warning: we did not find any attest statement for {{chain}}",
