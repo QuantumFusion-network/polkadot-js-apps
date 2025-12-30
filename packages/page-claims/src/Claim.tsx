@@ -85,7 +85,7 @@ function Claim ({ accountId, className = '', ethereumAddress, ethereumSignature,
     >
       <StyledDiv className={className}>
         {t('Your Ethereum account')}
-        <h2>{addrToChecksum(ethereumAddress.toString())}</h2>
+        <h3>{addrToChecksum(ethereumAddress.toString())}</h3>
         {hasClaim
           ? (
             <>
