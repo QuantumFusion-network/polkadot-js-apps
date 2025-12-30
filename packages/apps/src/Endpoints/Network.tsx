@@ -89,6 +89,7 @@ const StyledDiv = styled.div`
   position: relative;
 
   &.isUnreachable {
+    cursor: not-allowed;
     opacity: var(--opacity-light);
   }
 
