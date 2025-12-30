@@ -25,7 +25,7 @@ export function createWsEndpoints (t: TFunction = defaultT, firstOnly = false, w
     {
       isDisabled: false,
       isHeader: true,
-      text: t('rpc.header.mainnet', 'Mainnet', { ns: 'apps-config' }),
+      text: t('rpc.header.mainnet', 'Main networks', { ns: 'apps-config' }),
       textBy: '',
       ui: {},
       value: ''
@@ -49,7 +49,7 @@ export function createWsEndpoints (t: TFunction = defaultT, firstOnly = false, w
     {
       isDisabled: false,
       isHeader: true,
-      text: t('rpc.header.test', 'Dev networks', { ns: 'apps-config' }),
+      text: t('rpc.header.devnet', 'Dev networks', { ns: 'apps-config' }),
       textBy: '',
       ui: {},
       value: ''
