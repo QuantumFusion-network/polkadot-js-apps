@@ -52,10 +52,11 @@ function combineEndpoints (endpoints: LinkOption[]): Group[] {
 
       if (prev.networks[prev.networks.length - 1] && e.text === prev.networks[prev.networks.length - 1].name) {
         prev.networks[prev.networks.length - 1].providers.push(prov);
-      } else if (!e.isUnreachable) {
+      } else {
         prev.networks.push({
           isChild: e.isChild,
           isRelay: !!e.genesisHash,
+          isUnreachable: e.isUnreachable,
           name: e.text as string,
           nameRelay: e.textRelay as string,
           paraId: e.paraId,
