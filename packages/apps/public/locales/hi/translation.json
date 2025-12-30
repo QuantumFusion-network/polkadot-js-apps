@@ -106,7 +106,7 @@
   "Continue": "जारी रखें",
   "Conviction locks do overlap and is additive, meaning that funds locked during a previous vote can be locked again.": "कन्विक्शन लॉक ओवरलैप करते हैं और योगात्मक होते हैं, जिसका अर्थ है कि पिछले वोट के दौरान लॉक किए गए फंड को फिर से लॉक किया जा सकता है।",
   "Copy the above string and sign an Ethereum transaction with the account you used during the pre-sale in the wallet of your choice, using the string as the payload, and then paste the transaction signature object below": "उपरोक्त अनुक्रम की प्रतिलिपि बनाएँ और स्रोत के रूप में अनुक्रम का उपयोग करते हुए, अपनी पसंद के बटुए में पूर्व-बिक्री के दौरान आपके द्वारा उपयोग किए गए खाते के साथ एक एथेरियम लेनदेन पर हस्ताक्षर करें, और फिर नीचे लेनदेन के हस्ताक्षर पेस्ट करें",
-  "Copy the following string and sign it with the Ethereum account you used during the pre-sale in the wallet of your choice, using the string as the payload, and then paste the transaction signature object below:": "निम्न अनुक्रम की प्रतिलिपि बनाएँ और स्रोत के रूप में अनुक्रम का उपयोग करते हुए, अपनी पसंद के बटुए में पूर्व-बिक्री के दौरान आपके द्वारा उपयोग किए गए एथेरियम खाते के साथ हस्ताक्षर करें, और फिर नीचे लेनदेन के हस्ताक्षर पेस्ट करें",
+  "Copy the following string and sign it using the same Ethereum account you used to migrate your ERC-20 QF tokens to the QF Network Mainnet. Use the string as the signing payload, then paste the transaction signature object below:": "",
   "Council": "काउंसिल",
   "Council overview": "काउंसिल की जानकारी",
   "Create": "बनाएं",

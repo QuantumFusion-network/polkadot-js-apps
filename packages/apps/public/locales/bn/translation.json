@@ -145,7 +145,7 @@
   "Contracts": "চুক্তিসমূহ",
   "Conviction locks do overlap and are not additive, meaning that funds locked during a previous vote can be locked again.": "কনভিকশন লক-সমূহ ওভারল্যাপ করে এবং এগুলো যোজনীয় নয়, অর্থাৎ পূর্ববর্তী ভোটের সময় আটকে যাওয়া ফান্ড আবারও আটকে যেতে পারে।",
   "Copy the above string and sign an Ethereum transaction with the account you used during the pre-sale in the wallet of your choice, using the string as the payload, and then paste the transaction signature object below": "উপরের স্ট্রিংটি কপি করুন এবং স্ট্রিংটাকে পেলোড হিসেবে ব্যবহার করে বিক্রির আগে আপনার পছন্দের ওয়ালেটে যে একাউন্টটি ব্যবহার করেছিলেন তার মাধ্যমে একটি ইথেরিয়াম সই করুন, এবং তারপর ট্রানজেকশন সিগনেচার অবজেক্টটি নিচে পেস্ট করুন",
-  "Copy the following string and sign it with the Ethereum account you used during the pre-sale in the wallet of your choice, using the string as the payload, and then paste the transaction signature object below:": "উপরের স্ট্রিংটি কপি করুন এবং স্ট্রিংটাকে পেলোড হিসেবে ব্যবহার করে বিক্রির আগে আপনার পছন্দের ওয়ালেটে যে একাউন্টটি ব্যবহার করেছিলেন তার মাধ্যমে একটি ইথেরিয়াম সই করুন, এবং তারপর ট্রানজেকশন সিগনেচার অবজেক্টটি নিচে পেস্ট করুনঃ",
+  "Copy the following string and sign it using the same Ethereum account you used to migrate your ERC-20 QF tokens to the QF Network Mainnet. Use the string as the signing payload, then paste the transaction signature object below:": "",
   "Council": "পরিষদ",
   "Council overview": "পরিষদ ওভারভিউ",
   "Create": "তৈরি করুন",

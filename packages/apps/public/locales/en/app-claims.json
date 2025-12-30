@@ -6,7 +6,7 @@
   "Claim tokens": "Claim tokens",
   "Confirm claim": "Confirm claim",
   "Continue": "Continue",
-  "Copy the following string and sign it with the Ethereum account you used during the pre-sale in the wallet of your choice, using the string as the payload, and then paste the transaction signature object below:": "Copy the following string and sign it with the Ethereum account you used during the pre-sale in the wallet of your choice, using the string as the payload, and then paste the transaction signature object below:",
+  "Copy the following string and sign it using the same Ethereum account you used to migrate your ERC-20 QF tokens to the QF Network Mainnet. Use the string as the signing payload, then paste the transaction signature object below:": "",
   "I agree": "I agree",
   "Loading": "Loading",
   "Paste the signed message into the field below. The placeholder text is there as a hint to what the message should look like:": "Paste the signed message into the field below. The placeholder text is there as a hint to what the message should look like:",

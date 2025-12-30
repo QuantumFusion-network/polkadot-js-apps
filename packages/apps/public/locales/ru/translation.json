@@ -146,7 +146,7 @@
   "Copied": "Скопировано",
   "Copy": "Копировать",
   "Copy the above string and sign an Ethereum transaction with the account you used during the pre-sale in the wallet of your choice, using the string as the payload, and then paste the transaction signature object below": "Скопируйте строку выше и подпишите ее с помощью транзакции в сети Ethereum с учетной записи, которую Вы использовали в предпродаже，используя строку как \\рayload\\. Затем вставьте обьект подписи транзакции ниже",
-  "Copy the following string and sign it with the Ethereum account you used during the pre-sale in the wallet of your choice, using the string as the payload, and then paste the transaction signature object below:": "Скопируйте следующую строку и подпишите ее учетной записью Ethereum, которую Вы использовали во время предпродажи, используя строку как \\payload\\. Вставьте полученную подпись ниже:",
+  "Copy the following string and sign it using the same Ethereum account you used to migrate your ERC-20 QF tokens to the QF Network Mainnet. Use the string as the signing payload, then paste the transaction signature object below:": "",
   "Council": "Совет",
   "Council overview": "Обзор Совета",
   "Create": "Создать",

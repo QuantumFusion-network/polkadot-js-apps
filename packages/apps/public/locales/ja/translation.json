@@ -70,7 +70,7 @@
   "Constants": "定数",
   "Continue": "続ける",
   "Copy the above string and sign an Ethereum transaction with the account you used during the pre-sale in the wallet of your choice, using the string as the payload, and then paste the transaction signature object below": "上記の文字列をコピーし、その文字列をペイロードとして使用して、プレセール時に使用したアカウントでEthereumの取引を任意のウォレットに署名し、下記の取引署名オブジェクトを貼り付けます。",
-  "Copy the following string and sign it with the Ethereum account you used during the pre-sale in the wallet of your choice, using the string as the payload, and then paste the transaction signature object below:": "以下の文字列をコピーして、その文字列をペイロードとして、プレセール時に使用したEthereumアカウントで任意のウォレットに署名し、以下のトランザクション署名オブジェクトを貼り付けます。",
+  "Copy the following string and sign it using the same Ethereum account you used to migrate your ERC-20 QF tokens to the QF Network Mainnet. Use the string as the signing payload, then paste the transaction signature object below:": "",
   "Council": "カウンシル",
   "Council overview": "カウンシル概要",
   "Create": "作成",

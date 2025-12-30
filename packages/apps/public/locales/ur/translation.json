@@ -145,7 +145,7 @@
   "Contracts": "کانٹریکٹس",
   "Conviction locks do overlap and are not additive, meaning that funds locked during a previous vote can be locked again.": "کنوکشن لاکس اوورلیپ ہوجاتے ہیں اور قابلِ اضافہ نہیں ہوتے، اس کا مطلب یہ ہے کہ پچھلے ووٹ کے دوران لاکڈ فنڈز کو دوبارہ لاک کیا جاسکتا ہے۔",
   "Copy the above string and sign an Ethereum transaction with the account you used during the pre-sale in the wallet of your choice, using the string as the payload, and then paste the transaction signature object below": "مندرجہ بالا سٹرنگ کو کاپی کریں اور جس اکاؤنٹ کو آپ نے پری سیل کے دوران اپنی پسند کے والٹ میں استعمال کیا تھا اس سے ایتھیریم ٹرانزیکشن پر دستخط کریں، سٹرنگ کو پے لوڈ کے طور پر استعمال کرتے ہوئے اور پھر ٹرانزیکشن کے دستخط والی چیز کو نیچے پیسٹ کریں۔",
-  "Copy the following string and sign it with the Ethereum account you used during the pre-sale in the wallet of your choice, using the string as the payload, and then paste the transaction signature object below:": "درج ذیل سٹرنگ کو کاپی کریں اور جس اکاؤنٹ کو آپ نے پری سیل کے دوران اپنی پسند کے والٹ میں استعمال کیا تھا اس سے ایتھیریم ٹرانزیکشن پر دستخط کریں، سٹرنگ کو پے لوڈ کے طور پر استعمال کرتے ہوئے اور پھر ٹرانزیکشن کے دستخط والی چیز کو نیچے پیسٹ کریں۔",
+  "Copy the following string and sign it using the same Ethereum account you used to migrate your ERC-20 QF tokens to the QF Network Mainnet. Use the string as the signing payload, then paste the transaction signature object below:": "",
   "Council": "کونسل",
   "Council overview": "کونسل کا جائزہ",
   "Create": "تخلیق",

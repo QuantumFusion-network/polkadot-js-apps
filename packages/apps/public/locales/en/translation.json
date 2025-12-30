@@ -202,7 +202,7 @@
   "Copy": "",
   "Copy file cid": "",
   "Copy link": "",
-  "Copy the following string and sign it with the Ethereum account you used during the pre-sale in the wallet of your choice, using the string as the payload, and then paste the transaction signature object below:": "",
+  "Copy the following string and sign it using the same Ethereum account you used to migrate your ERC-20 QF tokens to the QF Network Mainnet. Use the string as the signing payload, then paste the transaction signature object below:": "",
   "Core Purchase Transactions": "",
   "Cores cannot be purchased now": "",
   "Coretime providers": "",
