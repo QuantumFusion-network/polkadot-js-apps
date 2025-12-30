@@ -1017,7 +1017,7 @@
   "dispatch queue": "调度队列",
   "display name": "展示姓名",
   "do not include empty strings in the generated file": "生成的文件中不包括空字符串在",
-  "does not appear to have a valid claim. Please double check that you have signed the transaction correctly on the correct ETH account.": "一个合法的认领没有出现. 请再次确认你签名的交易是否在正确的以太坊账户上.",
+  "does not appear to have a valid claim. Please double check that you have signed the transaction correctly on the correct ETH account. Note: it may take up to one day after the migration transaction on Ethereum for your claim record to be created in QF Network Mainnet.": "",
   "ed25519, Edwards": "ed25519, Edwards",
   "elected stake": "参与的质押",
   "email": "邮件",

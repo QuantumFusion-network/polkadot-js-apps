@@ -1041,7 +1041,7 @@
   "dispatch queue": "디스패치 큐",
   "display name": "표시 명칭",
   "do not include empty strings in the generated file": "빈 문자열을 생성 파일에 포함하지 마세요",
-  "does not appear to have a valid claim. Please double check that you have signed the transaction correctly on the correct ETH account.": "청구가 제대로 확인되지 않았습니다. 프리세일에 참가했던 이더리움 지갑으로 트랜젝션에 서명했는지 다시 한 번 체크해주세요",
+  "does not appear to have a valid claim. Please double check that you have signed the transaction correctly on the correct ETH account. Note: it may take up to one day after the migration transaction on Ethereum for your claim record to be created in QF Network Mainnet.": "",
   "ed25519, Edwards": "ed25519, 에드워드",
   "elected stake": "선출된 스테이크",
   "email": "이메일",

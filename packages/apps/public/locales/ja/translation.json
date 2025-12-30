@@ -406,7 +406,7 @@
   "details": "詳細",
   "development seed": "開発のシード",
   "display name": "表示名",
-  "does not appear to have a valid claim. Please double check that you have signed the transaction correctly on the correct ETH account.": "有効な取得権限を持っているようには見えません。正しいETHアカウントで正しく取引に署名したかどうかを二重に確認してください。",
+  "does not appear to have a valid claim. Please double check that you have signed the transaction correctly on the correct ETH account. Note: it may take up to one day after the migration transaction on Ethereum for your claim record to be created in QF Network Mainnet.": "",
   "email": "email",
   "endowment": "寄付金",
   "epoch": "エポック",

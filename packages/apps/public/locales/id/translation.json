@@ -1109,7 +1109,7 @@
   "dispatch queue": "antrian pengiriman",
   "display name": "nama tampilan",
   "do not include empty strings in the generated file": "jangan menyertakan string kosong di file yang dihasilkan",
-  "does not appear to have a valid claim. Please double check that you have signed the transaction correctly on the correct ETH account.": "tampaknya tidak memiliki klaim yang valid. Harap periksa kembali apakah anda telah menandatangani transaksi dengan benar di akun ETH yang benar.",
+  "does not appear to have a valid claim. Please double check that you have signed the transaction correctly on the correct ETH account. Note: it may take up to one day after the migration transaction on Ethereum for your claim record to be created in QF Network Mainnet.": "",
   "e.g. 5Gg3...": "cth. 5Gg3...",
   "ed25519, Edwards": "ed25519, Edwards",
   "elected stake": "stake terpilih",

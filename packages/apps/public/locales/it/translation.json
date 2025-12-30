@@ -1402,7 +1402,7 @@
   "dispatch queue": "coda di promulgazione",
   "display name": "nome visualizzato",
   "do not include empty strings in the generated file": "non includere le stringhe vuote nel file generato",
-  "does not appear to have a valid claim. Please double check that you have signed the transaction correctly on the correct ETH account.": "non sembra vantare un diritto di riscatto valido. Si prega di verificare di aver firmato la transazione sull'account ETH corretto.",
+  "does not appear to have a valid claim. Please double check that you have signed the transaction correctly on the correct ETH account. Note: it may take up to one day after the migration transaction on Ethereum for your claim record to be created in QF Network Mainnet.": "",
   "ed25519, Edwards": "ed25519, Edwards",
   "elapsed": "",
   "elected stake": "stake eletto",

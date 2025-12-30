@@ -777,7 +777,7 @@
   "dispatch queue": "कतार भेजना",
   "display name": "प्रदर्शन का नाम",
   "do not include empty strings in the generated file": "जेनरेट की गई फाइल में खाली तार शामिल न करें",
-  "does not appear to have a valid claim. Please double check that you have signed the transaction correctly on the correct ETH account.": "यह एक वैध दावा है प्रकट नहीं होता है। कृपया सत्यापित करें कि आपने सही ETH खाते पर लेनदेन पर सही ढंग से हस्ताक्षर किए हैं।",
+  "does not appear to have a valid claim. Please double check that you have signed the transaction correctly on the correct ETH account. Note: it may take up to one day after the migration transaction on Ethereum for your claim record to be created in QF Network Mainnet.": "",
   "ed25519, Edwards": "ed25519, एडवर्ड्स",
   "elected stake": "चुनी गई हिस्सेदारी",
   "email": "ईमेल",

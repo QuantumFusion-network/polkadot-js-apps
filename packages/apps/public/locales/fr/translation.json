@@ -1072,7 +1072,7 @@
   "dispatch queue": "file d'attente de distribution",
   "display name": "nom d'affichage",
   "do not include empty strings in the generated file": "ne pas inclure de chaînes vides dans le fichier généré",
-  "does not appear to have a valid claim. Please double check that you have signed the transaction correctly on the correct ETH account.": "ne semble pas avoir de revendication valide . Veuillez vérifier que vous avez correctement signé la transaction sur le bon compte ETH.",
+  "does not appear to have a valid claim. Please double check that you have signed the transaction correctly on the correct ETH account. Note: it may take up to one day after the migration transaction on Ethereum for your claim record to be created in QF Network Mainnet.": "",
   "ed25519, Edwards": "Ed25519, Edwards",
   "elected stake": "investissement élu",
   "email": "email",

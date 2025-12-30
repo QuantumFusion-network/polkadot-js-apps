@@ -22,7 +22,7 @@
   "claim to account": "claim to account",
   "click to copy": "click to copy",
   "copied": "copied",
-  "does not appear to have a valid claim. Please double check that you have signed the transaction correctly on the correct ETH account.": "does not appear to have a valid claim. Please double check that you have signed the transaction correctly on the correct ETH account.",
+  "does not appear to have a valid claim. Please double check that you have signed the transaction correctly on the correct ETH account. Note: it may take up to one day after the migration transaction on Ethereum for your claim record to be created in QF Network Mainnet.": "",
   "has a valid claim for": "has a valid claim for",
   "{{step}}. Sign with your ETH address": "{{step}}. Sign with your ETH address"
 }

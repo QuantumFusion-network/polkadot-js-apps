@@ -1012,7 +1012,7 @@
   "dispatch queue": "ڈسپیچ قطار",
   "display name": "ڈسپلے کا نام",
   "do not include empty strings in the generated file": "جنریٹڈ فائل میں ایمپٹی اسٹرنگ شامل نہ کریں",
-  "does not appear to have a valid claim. Please double check that you have signed the transaction correctly on the correct ETH account.": "بظاہر درست دعویٰ نہیں لگتا۔ براہ کرم ڈبل چیک کریں کہ آپ نے درست ای ٹی ایچ اکاؤنٹ کی ٹرانزیکشن پر صحیح دستخط کیئے ہیں",
+  "does not appear to have a valid claim. Please double check that you have signed the transaction correctly on the correct ETH account. Note: it may take up to one day after the migration transaction on Ethereum for your claim record to be created in QF Network Mainnet.": "",
   "ed25519, Edwards": "ed25519 ، ایڈورڈز",
   "elected stake": "چنا گیا داؤ",
   "email": "ای میل",

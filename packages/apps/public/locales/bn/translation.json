@@ -1011,7 +1011,7 @@
   "dispatch queue": "রেরণ সারি",
   "display name": "প্রদর্শনের নাম",
   "do not include empty strings in the generated file": "জেনারেট করা ফাইলে খালি স্ট্রিং অন্তর্ভুক্ত করবেন না",
-  "does not appear to have a valid claim. Please double check that you have signed the transaction correctly on the correct ETH account.": "বৈধ দাবি আছে বলে মনে হচ্ছে না। আপনি সঠিক ETH অ্যাকাউন্টে সঠিকভাবে লেনদেন স্বাক্ষর করেছেন কিনা অনুগ্রহ করে আবার চেক করুন।",
+  "does not appear to have a valid claim. Please double check that you have signed the transaction correctly on the correct ETH account. Note: it may take up to one day after the migration transaction on Ethereum for your claim record to be created in QF Network Mainnet.": "",
   "ed25519, Edwards": "ed25519, এডওয়ার্ডস",
   "elected stake": "নির্বাচিত স্টেক",
   "email": "ইমেইল",

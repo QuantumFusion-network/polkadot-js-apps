@@ -945,7 +945,7 @@
   "dispatch queue": "قائمة انتظار الإرسال",
   "display name": "الإسم المعروض",
   "do not include empty strings in the generated file": "لا تقم بتضمين سلاسل فارغة في الملف الذي تم إنشاؤه",
-  "does not appear to have a valid claim. Please double check that you have signed the transaction correctly on the correct ETH account.": ".لا يبدو أن لديك مطالبة صالحة.  يرجى التحقق من أنك وقعت المعاملة بشكل صحيح على حساب إيثيريوم المناسب",
+  "does not appear to have a valid claim. Please double check that you have signed the transaction correctly on the correct ETH account. Note: it may take up to one day after the migration transaction on Ethereum for your claim record to be created in QF Network Mainnet.": "",
   "ed25519, Edwards": "ed25519، إدواردز",
   "elected stake": "حصة منتخبة",
   "email": "الايميل",
