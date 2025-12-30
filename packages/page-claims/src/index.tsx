@@ -229,11 +229,11 @@ function ClaimsApp ({ basePath }: Props): React.ReactElement<Props> {
             // to be able to know the statement kind so that the users can sign it
             (step >= Step.ETHAddress && !isPreclaimed && !isOldClaimProcess) && (
               <Card withBottomMargin>
-                <h2>{t('2. Enter the ETH address from the sale.')}</h2>
+                <h2>{t('2. Enter your Ethereum address')}</h2>
                 <Input
                   autoFocus
                   className='full'
-                  label={t('Pre-sale ethereum address')}
+                  label={t('Ethereum address')}
                   onChange={onChangeEthereumAddress}
                   value={ethereumAddress || ''}
                 />
@@ -258,7 +258,7 @@ function ClaimsApp ({ basePath }: Props): React.ReactElement<Props> {
                   systemChain={systemChain}
                 />
               )}
-              <div>{t('Copy the following string and sign it with the Ethereum account you used during the pre-sale in the wallet of your choice, using the string as the payload, and then paste the transaction signature object below:')}</div>
+              <div>{t('Copy the following string and sign it using the same Ethereum account you used to migrate your ERC-20 QF tokens to the QF Network Mainnet. Use the string as the signing payload, then paste the transaction signature object below:')}</div>
               <CopyToClipboard
                 onCopy={onCopy}
                 text={payload}
