@@ -50,7 +50,7 @@ export const testChains: Omit<EndpointOption, 'teleport'>[] = [
 
 export const mainParaChains: Omit<EndpointOption, 'teleport'>[] = [
   {
-    info: 'quantum-fusion-para-main',
+    info: 'qf-main-para',
     providers: {
       'QF Network': 'wss://archive.para.mainnet.qfnode.net'
     },
