@@ -85,7 +85,7 @@ function Claim ({ accountId, className = '', ethereumAddress, ethereumSignature,
     >
       <StyledDiv className={className}>
         {t('Your Ethereum account')}
-        <h2>{addrToChecksum(ethereumAddress.toString())}</h2>
+        <h3>{addrToChecksum(ethereumAddress.toString())}</h3>
         {hasClaim
           ? (
             <>
@@ -104,7 +104,7 @@ function Claim ({ accountId, className = '', ethereumAddress, ethereumSignature,
           )
           : (
             <>
-              {t('does not appear to have a valid claim. Please double check that you have signed the transaction correctly on the correct ETH account.')}
+              {t('does not appear to have a valid claim. Please double check that you have signed the transaction correctly on the correct ETH account. Note: it may take up to one day after the migration transaction on Ethereum for your claim record to be created in QF Network Mainnet.')}
             </>
           )}
       </StyledDiv>

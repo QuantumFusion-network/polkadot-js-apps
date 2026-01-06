@@ -10,10 +10,9 @@ export * from './testingRelayWestend.js';
 export const mainChains: Omit<EndpointOption, 'teleport'>[] = [
   {
     info: 'quantum-fusion-main',
-    providers: {
-      'QF Network': 'wss://main.qfnetwork.xyz'
-    },
-    text: 'QF Network',
+    isUnreachable: true,
+    providers: {},
+    text: 'QF Mainnet (Coming soon)',
     ui: {
       color: '#000000',
       logo: chainsQfNetworkPNG
@@ -53,9 +52,9 @@ export const mainParaChains: Omit<EndpointOption, 'teleport'>[] = [
   {
     info: 'quantum-fusion-para-main',
     providers: {
-      'QF Network': 'wss://para.main.qfnetwork.xyz'
+      'QF Network': 'wss://archive.para.mainnet.qfnode.net'
     },
-    text: 'QF Network',
+    text: 'QF Mainnet Parachain (Polkadot)',
     ui: {
       color: '#000000',
       logo: chainsQfNetworkPNG

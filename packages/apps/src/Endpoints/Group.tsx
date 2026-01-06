@@ -28,7 +28,7 @@ function GroupDisplay ({ affinities, apiUrl, children, className = '', index, is
   );
 
   const filtered = useMemo(
-    () => networks.filter(({ isUnreachable }) => !isUnreachable),
+    () => networks,
     [networks]
   );
 
