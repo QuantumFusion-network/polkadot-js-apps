@@ -9,7 +9,7 @@ export * from './testingRelayWestend.js';
 
 export const mainChains: Omit<EndpointOption, 'teleport'>[] = [
   {
-    info: 'qf2',
+    info: 'qf-main',
     isUnreachable: true,
     providers: {},
     text: 'QF Mainnet (Coming soon)',
@@ -22,7 +22,7 @@ export const mainChains: Omit<EndpointOption, 'teleport'>[] = [
 
 export const devChains: Omit<EndpointOption, 'teleport'>[] = [
   {
-    info: 'qf',
+    info: 'qf-dev',
     providers: {
       'QF Network': 'wss://dev.qfnetwork.xyz'
     },
@@ -36,7 +36,7 @@ export const devChains: Omit<EndpointOption, 'teleport'>[] = [
 
 export const testChains: Omit<EndpointOption, 'teleport'>[] = [
   {
-    info: 'qf',
+    info: 'qf-test',
     providers: {
       'QF Network': 'wss://test.qfnetwork.xyz'
     },
@@ -50,7 +50,7 @@ export const testChains: Omit<EndpointOption, 'teleport'>[] = [
 
 export const mainParaChains: Omit<EndpointOption, 'teleport'>[] = [
   {
-    info: 'qf',
+    info: 'qf-main-para',
     providers: {
       'QF Network': 'wss://archive.para.mainnet.qfnode.net'
     },
@@ -64,7 +64,7 @@ export const mainParaChains: Omit<EndpointOption, 'teleport'>[] = [
 
 export const devParaChains: Omit<EndpointOption, 'teleport'>[] = [
   {
-    info: 'qf',
+    info: 'qf-dev-para',
     isDisabled: true,
     providers: {
       'QF Network': 'wss://para-dev.qfnetwork.xyz'
@@ -79,7 +79,7 @@ export const devParaChains: Omit<EndpointOption, 'teleport'>[] = [
 
 export const testParaChains: Omit<EndpointOption, 'teleport'>[] = [
   {
-    info: 'qf',
+    info: 'qf-test-para',
     providers: {
       'QF Network': 'wss://para-test.qfnetwork.xyz'
     },
