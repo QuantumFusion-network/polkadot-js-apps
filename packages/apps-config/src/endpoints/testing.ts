@@ -9,8 +9,7 @@ export * from './testingRelayWestend.js';
 
 export const mainChains: Omit<EndpointOption, 'teleport'>[] = [
   {
-    // TODO: rename to qfnetwork or leave as is?
-    info: 'qf2',
+    info: 'quantum-fusion-main',
     providers: {
       'QF Network': 'wss://main.qfnetwork.xyz'
     },
@@ -24,8 +23,7 @@ export const mainChains: Omit<EndpointOption, 'teleport'>[] = [
 
 export const devChains: Omit<EndpointOption, 'teleport'>[] = [
   {
-    // TODO: rename to qfnetwork or leave as is?
-    info: 'qf',
+    info: 'quantum-fusion-dev',
     providers: {
       'QF Network': 'wss://dev.qfnetwork.xyz'
     },
@@ -39,8 +37,7 @@ export const devChains: Omit<EndpointOption, 'teleport'>[] = [
 
 export const testChains: Omit<EndpointOption, 'teleport'>[] = [
   {
-    // TODO: rename to qfnetwork or leave as is?
-    info: 'qf',
+    info: 'quantum-fusion-test',
     providers: {
       'QF Network': 'wss://test.qfnetwork.xyz'
     },
@@ -54,8 +51,7 @@ export const testChains: Omit<EndpointOption, 'teleport'>[] = [
 
 export const mainParaChains: Omit<EndpointOption, 'teleport'>[] = [
   {
-    // TODO: rename to qfnetwork or leave as is?
-    info: 'qf',
+    info: 'quantum-fusion-para-main',
     providers: {
       'QF Network': 'wss://para.main.qfnetwork.xyz'
     },
@@ -69,8 +65,7 @@ export const mainParaChains: Omit<EndpointOption, 'teleport'>[] = [
 
 export const devParaChains: Omit<EndpointOption, 'teleport'>[] = [
   {
-    // TODO: rename to qfnetwork or leave as is?
-    info: 'qf',
+    info: 'quantum-fusion-para-dev',
     isDisabled: true,
     providers: {
       'QF Network': 'wss://para-dev.qfnetwork.xyz'
@@ -85,8 +80,7 @@ export const devParaChains: Omit<EndpointOption, 'teleport'>[] = [
 
 export const testParaChains: Omit<EndpointOption, 'teleport'>[] = [
   {
-    // TODO: rename to qfnetwork or leave as is?
-    info: 'qf',
+    info: 'quantum-fusion-para-test',
     providers: {
       'QF Network': 'wss://para-test.qfnetwork.xyz'
     },
