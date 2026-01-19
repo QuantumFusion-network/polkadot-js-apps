@@ -18,6 +18,7 @@ import { useTranslation } from '../translate.js';
 import ChainInfo from './ChainInfo.js';
 import Grouping from './Grouping.js';
 import Item from './Item.js';
+import NetworkNotice from './NetworkNotice.js';
 import NodeInfo from './NodeInfo.js';
 
 interface Props {
@@ -151,11 +152,7 @@ function Menu ({ className = '' }: Props): React.ReactElement<Props> {
             ))}
           </ul>
         </div>
-        <div className='apps--notice'>
-          <strong>QF networks are under active development:</strong>
-          - Expect instability and data loss. <br />
-          - State may be wiped without notice.
-        </div>
+        <NetworkNotice />
         <NodeInfo className='media--1400' />
       </div>
     </StyledDiv>
