@@ -222,7 +222,6 @@ export const QFNTheme = createGlobalStyle`
       color: #FFFFFF;
       border: 1px solid #CFC289;
       font-size: 12px;
-      min-height: 63px;
       opacity: 0.7;
       border-radius: 3px;
     }
