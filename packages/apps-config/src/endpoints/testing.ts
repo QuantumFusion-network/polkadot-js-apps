@@ -10,9 +10,10 @@ export * from './testingRelayWestend.js';
 export const mainChains: Omit<EndpointOption, 'teleport'>[] = [
   {
     info: 'qf2',
-    isUnreachable: true,
-    providers: {},
-    text: 'QF Mainnet (Coming soon)',
+    providers: {
+      'QF Network': 'wss://mainnet.qfnode.net'
+    },
+    text: 'QF Mainnet',
     ui: {
       color: '#000000',
       logo: chainsQfNetworkPNG
