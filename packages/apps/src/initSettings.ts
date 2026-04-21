@@ -66,7 +66,7 @@ function getApiUrl (): string {
 
     return fallbackUrl
       ? fallbackUrl.value
-      : 'wss://test.qfnetwork.xyz'; // fallback if no public endpoint found
+      : 'wss://testnet.qfnode.net'; // fallback if no public endpoint found
   }
 
   return url;
